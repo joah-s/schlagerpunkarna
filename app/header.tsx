@@ -9,7 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > innerHeight;
+      const isScrolled = window.scrollY  > innerHeight;
       setScrolled(isScrolled);
     };
 
@@ -19,14 +19,14 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Om oss', href: '#about' },
-    { name: 'Musik', href: '#music' },
+    { name: 'Diskografi', href: '#music' },
     { name: 'Kontakt', href: '#contact' }
     
   ];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-black/80 backdrop-blur-sm py-2' : 'bg-transparent py-4'
+      scrolled ? 'bg-black/80 backdrop-blur-sm py-4' : 'bg-transparent py-4'
     }`}>
       <div className=" mx-auto px-6 sm:px-10 lg:px-8 lg:py-2">
         <div className="flex justify-between items-center">
@@ -35,17 +35,17 @@ const Header = () => {
             <img 
               src="icons/spLogo.png" 
               alt="Logo" 
-              className="w-12 h-12 object-contain"
+              className="w-8 h-8 mb-1  object-contain"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden sm:flex items-center space-x-8">
+          <div className="hidden sm:flex items-center space-x-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="font-Viga text-lg text-gray-300 hover:text-white transition-colors duration-200"
+                className=" text-sm py-2 w-32 text-center  rounded-2xl border border-gray-600 font-Viga text-lg text-gray-300 hover:text-white transition-colors duration-200"
               >
                 {link.name}
               </a>
@@ -69,13 +69,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="sm:hidden ">
+            <div className="mt-[30vh] px-2 pt-2 pb-3 space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block font-Viga text-lg text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                  className="block font-Viga text-lg text-gray-300   hover:text-white transition-colors duration-200 py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

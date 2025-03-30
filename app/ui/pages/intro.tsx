@@ -23,6 +23,7 @@ export default function Intro() {
             loop
             muted
             src="/SPjump.mp4"
+            playsInline={true}
           />
 
         </div>

@@ -15,6 +15,7 @@ export default function Land() {
           autoPlay={true}
           muted={true}
           loop={true}
+          playsInline={true}
         />
       </div>
 
