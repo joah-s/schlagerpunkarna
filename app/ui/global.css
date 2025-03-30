@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+:root {
+  --pri: #FFBD00;
+  --sec: #759AAB;
+  --background: #322A2A;
+  --tc: #DEFFF2;
+
+}
+
+@font-face {
+  font-family: Tuffy;
+  src: url('https://www.mediafont.com/storage/contents/11192/font.eot');
+  /* IE */
+  src: local('Tuffy'), url('https://www.mediafont.com/storage/contents/11192/Tuffy.ttf');
+  /* non-IE */
+}
+
+body {
+  font-family: 'Tuffy', sans-serif;
+  background-color: #000000;
+}
+
+.font-TypoGraphica {
+  font-family: 'TypoGraphica', sans-serif;
+}
+
+.font-Viga {
+  font-family: 'Viga', sans-serif;
+}
+
