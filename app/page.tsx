@@ -9,6 +9,8 @@ import Form from '@/app/ui/pages/form'
 import Footer from '@/app/ui/pages/footer'
 import Header from './header'
 import { motion } from 'framer-motion';
+import Head from "next/head";
+
 
 function scrollToElement(id: string) {
   const element = document.getElementById(id);
@@ -26,7 +28,11 @@ function scrollToElement(id: string) {
 export default function Page() {
 
   return (
+    
     <main className="relative text-white ">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
       
 
