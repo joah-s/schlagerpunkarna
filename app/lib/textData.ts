@@ -1,14 +1,14 @@
 export const textData = {
     landPage: {
       heading: "SCHLAGERPUNKARNA",
-      paragraph: "Schlagerpunkarna är ett band bestående av fyra musikanter som delar ett gemensamt mål, att sprida det schlanarkistiska manifestet.",
+      paragraph: "Fyra musikanter som delar ett gemensamt mål, att sprida det schlanarkistiska manifestet.",
     },
     intro: {
       heading: "LÅT SCHLANARKISMEN BÖRJA!",
       paragraph: [
-        "Detta gör de genom att agera underhållning som allmänheten ej kan motstå att sjunga, skratta och dansa till. Schlanarkismen ska levas enligt följande budord:",
+        "Underhållning som allmänheten ej kan motstå att sjunga, skratta och dansa till. Schlanarkismen ska levas enligt följande budord:",
         "Du skall inga andra genrer hava jämte schpunken.",
-        "Varje musikalisk komposition skall innehålla MINST en tonartshöjning.",
+        "Varje komposition skall innehålla MINST en tonartshöjning.",
         "Schlanarkism = Tonartshöjningar OCH Anarkism.",
         "Hellre ett sexpack Burgen i logen än en flaska bubbel på krogen.",
         "Den 27:e smäller det.",
@@ -189,21 +189,21 @@ export const textData = {
         {
           name: "Genom eld & vatten",
           genre:"Musikvideo",
-          description:"Video av Konrad Welinder & Jonathan Ahlström",
+          description:"📸 Konrad Welinder & Jonathan Ahlström",
           videoURL:"https://www.youtube.com/embed/dMb8iliV0rI?si=no4Gd9-SVlZMktBl",
           imgSrc:"",
         },
         {
-          name: "Musikvideo",
-          genre:"Hej Sofia",
-          description:"Video av Konrad Welinder & Jonathan Ahlström",
+          name: "Hej Sofia",
+          genre:"Musikvideo",
+          description:"📸 Konrad Welinder & Jonathan Ahlström",
           videoURL:"https://www.youtube.com/embed/G8jN-t282hc?si=gnR0NLBpvQ46acSf",
           imgSrc:"",
         },
         {
           name: "Mellandagsröjet på mejeriet",
           genre:"Liveframträdande",
-          description:"Video av Jonathan Ahlström",
+          description:"📸 Jonathan Ahlström",
           videoURL:"https://www.youtube.com/embed/B1CgYt1It_M?si=FEu_-AfrF8iSgJm_",
           imgSrc:"",
         },

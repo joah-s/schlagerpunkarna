@@ -3,15 +3,15 @@ import AlbumCard from "./AlbumCard";
 
 export default function Music() {
   return (
-    <div className="relative px-[2%]  md:px-[5rem] min-h-screen bg-gradient-to-t from-black to-purple-900">
-      <div className="relative py-16 px-6">
+    <div className="relative px-[2%] md:px-[5rem] lg:px-16 min-h-screen bg-gradient-to-t from-black to-purple-900">
+      <div className="relative py-16">
         {/* Header section */}
         <section className="py-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wider text-purple-400">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wider text-white">
             <span className="relative z-10">{textData.timeline.heading}</span>
           </h2>
           <div className="max-w-3xl mb-12">
-            <p className="text-lg md:text-xl leading-relaxed text-gray-300 opacity-90">
+            <p className="text-sm font-bold md:text-xl leading-relaxed text-gray-300 opacity-90">
               {textData.timeline.paragraph}
             </p>
           </div>

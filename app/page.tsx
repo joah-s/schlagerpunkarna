@@ -28,14 +28,12 @@ function scrollToElement(id: string) {
 export default function Page() {
 
   return (
-    
+
     <main className="relative text-white ">
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      
-
       <a className=" hidden md:block" >
         <div className={`fixed bottom-0 right-3 mb-3 z-50 transition-all duration-300`}>
           <button className="text-textColor dark:text-textColorDark bg-secondary dark:bg-secondaryDark  dark:text-black rounded-full  shadow-sm drop-shadow-xl p-4 hover:scale-105 transition-all">
@@ -45,7 +43,6 @@ export default function Page() {
           </button>
         </div>
       </a>
-
       <div id="land">
         <Land />
       </div>

@@ -46,7 +46,7 @@ export default function Land() {
             {/* Heading */}
             <div className="mb-8">
               <h1 className="animate-pulse bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-TypoGraphica
-                text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+                text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
                  leading-none mb-4 transition-all duration-300">
                 {textData.landPage.heading}
               </h1>

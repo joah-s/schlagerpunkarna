@@ -3,13 +3,13 @@ import { textData } from '../../lib/textData';
 
 export default function Characters() {
     return (
-      <div className="relative px-[2%] md:px-[5rem] " >
-        <section className="py-16 px-6">
-        <h2 className="text-2xl font-bold  md:text-4xl font-bold mb-6 uppercase tracking-wider text-purple-400">
+      <div className="relative px-[2%] md:px-[5rem] lg:px-16 " >
+        <section className="py-16">
+        <h2 className="text-3xl md:text-5xl font-bold   font-bold mb-6 uppercase tracking-wider text-purple-400">
           {textData.characters.heading}
         </h2>
         <div className="space-y-6 max-w-3xl">
-          <p className="text-lg md:text-xl leading-relaxed text-gray-300">
+          <p className="text-sm font-bold md:text-xl leading-relaxed text-gray-300">
           {textData.characters.paragraph}
             
           </p>

@@ -16,7 +16,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   description,
 }) => {
   return (
-    <div className="group relative overflow-hidden p-6 transition-all hover:shadow-xl">
+    <div className="group relative overflow-hidden py-6 transition-all hover:shadow-xl">
       <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
         {/* Image container with overlay effect */}
         <div className="relative">
@@ -36,10 +36,10 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         {/* Text content */}
         <div className="flex-1 space-y-3">
           <div>
-            <h3 className="text-xl font-bold text-white sm:text-2xl md:text-3xl">{name}</h3>
-            <p className="text-md font-medium text-indigo-400 sm:text-lg md:text-xl">{role}</p>
+            <h3 className="text-xl  font-bold text-white sm:text-2xl md:text-3xl">{name}</h3>
+            <p className="text-md  text-indigo-400 font-semibold  sm:text-lg md:text-xl py-1">{role}</p>
           </div>
-          <p className="text-gray-300 text-justify  max-w-xl">{description}</p>
+          <p className="text-gray-300 text-sm  max-w-xl">{description}</p>
         </div>
       </div>
 
