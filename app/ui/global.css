@@ -28,6 +28,18 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 @font-face {
+  font-family: 'TypoGraphica';
+  src: url('/fonts/TypoGraphica_demo.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font to the entire app */
+body {
+  font-family: 'TypoGraphica', sans-serif;
+}
+
+@font-face {
   font-family: Tuffy;
   src: url('https://www.mediafont.com/storage/contents/11192/font.eot');
   /* IE */
