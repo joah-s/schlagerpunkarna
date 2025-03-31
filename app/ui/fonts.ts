@@ -1,4 +1,4 @@
-import { Inter, Lusitana, Roboto_Mono, Viga, Exo } from 'next/font/google';
+import { Inter, Lusitana, Roboto_Mono, Exo } from 'next/font/google';
 
  
 export const inter = Inter({ subsets: ['latin'] });
@@ -12,11 +12,7 @@ export const lusitana = Lusitana({
     display: 'swap',
   })
 
-  export const viga = Viga({
-    weight: ['400' ], 
-    subsets: ['latin'],
-    
-  })
+
   
   export const exo = Exo({
     weight: ['400' ], 

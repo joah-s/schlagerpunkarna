@@ -45,7 +45,7 @@ const Header = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className=" text-sm py-2 w-32 text-center  rounded-2xl border border-gray-600 font-Viga text-lg text-gray-300 hover:text-white transition-colors duration-200"
+                className=" text-sm py-2 w-32 text-center  rounded-2xl border border-gray-600  text-lg text-gray-300 hover:text-white transition-colors duration-200"
               >
                 {link.name}
               </a>
