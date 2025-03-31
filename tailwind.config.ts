@@ -12,7 +12,7 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-   
+      sans: ['Roboto', 'sans-serif'],
 
     }, 
     screens: {

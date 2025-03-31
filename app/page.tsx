@@ -32,7 +32,9 @@ export default function Page() {
     <main className="relative text-white ">
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
       </Head>
+
       <Header />
       <a className=" hidden md:block" >
         <div className={`fixed bottom-0 right-3 mb-3 z-50 transition-all duration-300`}>
