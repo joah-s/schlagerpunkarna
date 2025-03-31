@@ -18,12 +18,12 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
 
     return (
         <div
-            className={`relative group ${clickable ? 'cursor-pointer' : ''}`}
+            className={`font-Viga relative group ${clickable ? 'cursor-pointer' : ''}`}
             onMouseEnter={() => clickable && setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
             {/* Year display */}
-            <div className="absolute -top-12 left-0 w-full">
+            <div className=" absolute -top-12 left-0 w-full">
                 <div className="relative inline-flex flex-col items-center">
                     <span className="text-2xl font-bold text-white mb-2 opacity-90">
                         {year}

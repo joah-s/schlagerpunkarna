@@ -32,17 +32,17 @@ export default function Intro() {
 
 
       <section className="py-16 rounded-lg relative z-10">
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 uppercase tracking-wider text-purple-500">
+        <h2 className="text-3xl md:text-5xl font-extrabold  mb-4 uppercase tracking-wider text-purple-500">
           {textData.intro.heading}
         </h2>
         <div className="space-y-4 max-w-3xl ">
           {/* Display the first element as normal text */}
-          <p className="text-base text-sm py-4 md:text-lg lg:text-xl leading-relaxed text-gray-300 font-semibold">
+          <p className="text-base text-sm py-4 md:text-lg lg:text-xl leading-relaxed text-gray-300 font-semibold font-exo">
             {textData.intro.paragraph[0]}
           </p>
           {/* Map over the rest of the paragraph array to display each point */}
           {textData.intro.paragraph.slice(1).map((point, index) => (
-            <div key={index} className="flex items-center text-base text-sm md:text-md leading-relaxed text-gray-300 ">
+            <div key={index} className="flex items-center text-base text-sm md:text-md leading-relaxed text-gray-300 font-Viga">
               <span className="text-purple-400 mr-2">•</span> {point}
             </div>
           ))}

@@ -76,7 +76,7 @@ export default function Form() {
   };
 
   return (
-    <div className="relative py-20 flex flex-col antialiased items-center justify-center overflow-hidden">
+    <div className="font-Viga relative py-20 flex flex-col antialiased items-center justify-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 -z-10">
         <img

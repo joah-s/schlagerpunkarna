@@ -9,7 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY  > innerHeight;
+      const isScrolled = window.scrollY > innerHeight;
       setScrolled(isScrolled);
     };
 
@@ -21,20 +21,19 @@ const Header = () => {
     { name: 'Om oss', href: '#about' },
     { name: 'Diskografi', href: '#music' },
     { name: 'Kontakt', href: '#contact' }
-    
+
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-black/80 backdrop-blur-sm py-4' : 'bg-transparent py-4'
-    }`}>
+    <nav className={`font-Viga fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-sm py-4' : 'bg-black/80 sm:bg-transparent py-4'
+      }`}>
       <div className=" mx-auto px-6 sm:px-10 lg:px-8 lg:py-2">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <img 
-              src="icons/spLogo.png" 
-              alt="Logo" 
+            <img
+              src="icons/spLogo.png"
+              alt="Logo"
               className="w-8 h-8 mb-1  object-contain"
             />
           </div>
@@ -75,7 +74,7 @@ const Header = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="block font-Viga text-lg text-gray-300   hover:text-white transition-colors duration-200 py-2"
+                  className="block  text-lg text-gray-300   hover:text-white transition-colors duration-200 py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

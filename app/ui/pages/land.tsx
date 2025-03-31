@@ -54,7 +54,7 @@ export default function Land() {
 
               {/* Subheading */}
               <text className="mx-auto max-w-3xl  sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed
-                opacity-90 transition-all duration-300 font-Viga">
+                 transition-all duration-300 font-exo ">
                 {textData.landPage.paragraph}
               </text>
             </div>

@@ -42,7 +42,7 @@ export default function Music() {
 
           {/* Mobile Version with vertical timeline */}
           <div className="md:hidden space-y-12 ">
-            <div className="relative ">
+            <div className=" relative ">
               {textData.timeline.discografi.map((album, i) => (
                 <div key={i} className="mb-24  w-full">
                   <AlbumCard

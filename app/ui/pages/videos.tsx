@@ -3,7 +3,7 @@ import VideoCard from "../dashboard/videoCard";
 
 export default function Videos() {
   return (
-    <div className=" relative px-[2%] md:px-[5rem] lg:px-16">
+    <div className="font-Viga relative px-[2%] md:px-[5rem] lg:px-16">
       <section className="py-16 ">
         <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wider text-purple-400">
           {textData.video.heading}

@@ -36,10 +36,10 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         {/* Text content */}
         <div className="flex-1 space-y-3">
           <div>
-            <h3 className="text-xl  font-bold text-white sm:text-2xl md:text-3xl">{name}</h3>
-            <p className="text-md  text-indigo-400 font-semibold  sm:text-lg md:text-xl py-1">{role}</p>
+            <h3 className="font-Viga text-xl  font-bold text-white sm:text-2xl md:text-3xl">{name}</h3>
+            <p className="font-Viga text-md  text-indigo-400   sm:text-lg md:text-xl py-1">{role}</p>
           </div>
-          <p className="text-gray-300 text-sm  max-w-xl">{description}</p>
+          <p className="font-Viga text-gray-300 text-sm  max-w-xl">{description}</p>
         </div>
       </div>
 
