@@ -1,10 +1,19 @@
-
 'use client';
 import { SparklesCore } from "@/app/ui/sparkles";
 import { textData } from '../../lib/textData';
-import { ArrowRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 export default function Land() {
+  const scrollToNextSection = () => {
+    // Get the height of the viewport
+    const viewportHeight = window.innerHeight;
+    // Scroll down by one viewport height
+    window.scrollTo({
+      top: viewportHeight,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div>
       {/* Background Video */}
@@ -36,85 +45,50 @@ export default function Land() {
           </div>
 
           {/* Content Container */}
-          <div className="absolute w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="absolute w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
             {/* Mobile Logo */}
             <img
-              className="mx-auto sm:hidden block h-32 py-3 transform hover:scale-105 transition-transform duration-300"
+              className="mx-auto sm:hidden block h-32 py-3 transform hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
               src="icons/spLogo.png"
               alt="Logo"
             />
 
             {/* Heading */}
             <div className="mb-8">
-              <h1 className="animate-pulse bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent font-TypoGraphica
-                text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
-                 leading-none mb-4 transition-all duration-300">
+              <h1 className="font-TypoGraphica
+                text-[2.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7.5rem] 
+                 leading-none mb-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                 {textData.landPage.heading}
+                
               </h1>
-
-              {/* Subheading */}
-              <text className="mx-auto max-w-3xl  sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed
-                 transition-all duration-300 font-exo ">
+              <text className="mx-auto max-w-3xl sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed
+                 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] font-Viga">
                 {textData.landPage.paragraph}
               </text>
+
+              {/* Subheading */}
+              
             </div>
 
             {/* Call to Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              <button className="group relative inline-flex items-center justify-center px-8 py-3 
-                text-lg font-medium text-white bg-purple-600 hover:bg-purple-700
-                rounded-full overflow-hidden transition-all duration-300
-                transform hover:scale-105 hover:shadow-lg
-                focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900">
-                Explore Music
-                <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-200" />
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-              </button>
-
-              <button className="group relative inline-flex items-center justify-center px-8 py-3
-                text-lg font-medium text-purple-400 border-2 border-purple-400
-                hover:text-white hover:border-purple-500
+              <button 
+                onClick={scrollToNextSection}
+                className="group relative inline-flex items-center justify-center px-8 py-3 
+                text-lg font-medium text-white bg-gray-800 hover:bg-gray-700
                 rounded-full overflow-hidden transition-all duration-300
                 transform hover:scale-105
-                focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900">
-                About Us
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900">
+                Utforska
+                <ArrowDown className="ml-2 h-5 w-5 transform group-hover:translate-y-1 transition-transform duration-300" />
               </button>
+
+              
             </div>
           </div>
 
           {/* Scroll Indicator */}
-          <button
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2 
-            p-4 rounded-full hover:bg-white/5 transition-colors duration-300"
-            onClick={() => {
-              window.scrollTo({
-                top: window.innerHeight - 30,
-                behavior: 'smooth'
-              });
-            }}
-          >
-            <svg
-              fill="#ffffff"
-              height="20px"
-              width="20px"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 330 330"
-              className="opacity-70 hover:opacity-100 transition-opacity duration-300 animate-[updown_1.5s_ease-in-out_infinite]"
-            >
-              <path
-                id="XMLID_222_"
-                d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001 c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213 C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606 C255,161.018,253.42,157.202,250.606,154.389z"
-              />
-            </svg>
-            <style jsx global>{`
-              @keyframes updown {
-                0%, 100% { transform: translateY(0) rotate(90deg); }
-                50% { transform: translateY(-3px) rotate(90deg); }
-              }
-            `}</style>
-          </button>
+          
         </div>
       </div>
     </div>
