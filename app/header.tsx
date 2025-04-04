@@ -78,7 +78,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="sm:hidden">
+          <div className="">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] z-50 relative"
@@ -94,7 +94,7 @@ const Header = () => {
 
         {/* Mobile Navigation - Full Screen */}
         {isOpen && (
-          <div className="sm:hidden ">
+          <div className=" ">
             <div className="mt-[30vh] px-2 pt-2 pb-3 space-y-1">
               {navLinks.map((link) => (
                 <div key={link.name} className="flex items-center">

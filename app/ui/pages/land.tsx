@@ -2,6 +2,7 @@
 import { SparklesCore } from "@/app/ui/sparkles";
 import { textData } from '../../lib/textData';
 import { ArrowDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Land() {
   const scrollToNextSection = () => {
@@ -13,6 +14,10 @@ export default function Land() {
       behavior: 'smooth'
     });
   };
+
+  // Split the heading and paragraph text into words
+  const headingWords = textData.landPage.heading.split(' ');
+  const paragraphWords = textData.landPage.paragraph.split(' ');
 
   return (
     <div>
@@ -58,13 +63,32 @@ export default function Land() {
               <h1 className="font-TypoGraphica
                 text-[2.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7.5rem] 
                  leading-none mb-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
-                {textData.landPage.heading}
-                
+                {headingWords.map((word, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="inline-block mr-2"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
               </h1>
-              <text className="mx-auto max-w-3xl sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed
-                 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] font-Viga">
-                {textData.landPage.paragraph}
-              </text>
+              <div className="mx-auto text-md md:text-xl lg:text-3xl text-gray-300 mb-6 md:mb-8 font-Viga
+                 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+                {paragraphWords.map((word, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 + (i * 0.05) }}
+                    className="inline-block mr-1"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </div>
 
               {/* Subheading */}
               
@@ -72,7 +96,10 @@ export default function Land() {
 
             {/* Call to Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              <button 
+              <motion.button 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.5 }}
                 onClick={scrollToNextSection}
                 className="group relative inline-flex items-center justify-center px-8 py-3 
                 text-lg font-medium text-white bg-gray-800 hover:bg-gray-700
@@ -81,7 +108,7 @@ export default function Land() {
                 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900">
                 Utforska
                 <ArrowDown className="ml-2 h-5 w-5 transform group-hover:translate-y-1 transition-transform duration-300" />
-              </button>
+              </motion.button>
 
               
             </div>
