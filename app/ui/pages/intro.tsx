@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ContainerScroll } from "../container-scroll-animation";
 import { textData } from '../../lib/textData';
@@ -9,10 +9,29 @@ import { textData } from '../../lib/textData';
 const words = textData.intro.heading.split(' ');
 
 export default function Intro() {
+  const [isMobile, setIsMobile] = useState(false);
   const targetRef = useRef(null);
   const inViewRef = useRef(null);
   const isInView = useInView(inViewRef, { once: false, amount: 0.3 });
   
+  useEffect(() => {
+    // Check if window is available (client-side)
+    if (typeof window !== 'undefined') {
+      // Set initial state
+      setIsMobile(window.innerWidth < 640);
+      
+      // Add resize listener
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 640);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      
+      // Clean up
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end start"]
@@ -42,51 +61,80 @@ export default function Intro() {
       </div>
 
       <section className="py-12 md:py-16 lg:py-20 rounded-lg relative z-10 " ref={inViewRef}>
-        <motion.h2 
-          style={{ opacity, scale }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 uppercase tracking-wider text-white bg-clip-text text-transparent font-Viga "
-        >
-          {words.map((word, i) => (
-            <motion.span
-              key={i}
+        {isMobile ? (
+          // No animation for mobile
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 uppercase tracking-wider text-white bg-clip-text text-transparent font-Viga">
+            {textData.intro.heading}
+          </h2>
+        ) : (
+          // Animated version for larger screens
+          <motion.h2 
+            style={{ opacity, scale }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-6 md:mb-8 uppercase tracking-wider text-white bg-clip-text text-transparent font-Viga "
+          >
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="inline-block mr-2"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.h2>
+        )}
+        
+        {isMobile ? (
+          // No animation for mobile
+          <div className="space-y-5 max-w-3xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide">
+              {textData.intro.paragraph[0]}
+            </p>
+            <div className="mt-6 space-y-3">
+              {textData.intro.paragraph.slice(1).map((point, index) => (
+                <div 
+                  key={index} 
+                  className="flex items-start text-sm sm:text-base md:text-lg leading-relaxed text-gray-300 font-Viga"
+                >
+                  <span className="text-purple-400 mr-3 text-xl mt-0.5">•</span> 
+                  <span className="flex-1">{point}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          // Animated version for larger screens
+          <motion.div 
+            className="space-y-5 max-w-3xl "
+            style={{ y, opacity }}
+          >
+            <motion.p 
+              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="inline-block mr-2"
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              {word}
-            </motion.span>
-          ))}
-        </motion.h2>
-        <motion.div 
-          className="space-y-5 max-w-3xl "
-          style={{ y, opacity }}
-        >
-          {/* Display the first element as normal text */}
-          <motion.p 
-            className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            {textData.intro.paragraph[0]}
-          </motion.p>
-          {/* Map over the rest of the paragraph array to display each point */}
-          <motion.div className="mt-6 space-y-3 ">
-            {textData.intro.paragraph.slice(1).map((point, index) => (
-              <motion.div 
-                key={index} 
-                className="flex items-start text-sm sm:text-base md:text-lg leading-relaxed text-gray-300 font-Viga"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
-              >
-                <span className="text-purple-400 mr-3 text-xl mt-0.5">•</span> 
-                <span className="flex-1">{point}</span>
-              </motion.div>
-            ))}
+              {textData.intro.paragraph[0]}
+            </motion.p>
+            <motion.div className="mt-6 space-y-3 ">
+              {textData.intro.paragraph.slice(1).map((point, index) => (
+                <motion.div 
+                  key={index} 
+                  className="flex items-start text-sm sm:text-base md:text-lg leading-relaxed text-gray-300 font-Viga"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
+                >
+                  <span className="text-purple-400 mr-3 text-xl mt-0.5">•</span> 
+                  <span className="flex-1">{point}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        )}
+        
         {/* Video for mobile */}
         <div className="block md:hidden mt-8 ">
           {/* Gradient overlay for mobile video */}
