@@ -64,7 +64,7 @@ export default function Page() {
 
       <Header />
       <motion.div 
-        className={`fixed bottom-0 right-3 mb-3 z-50 transition-all duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed bottom-0 right-3 mb-3 z-50 transition-all duration-300 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         <button 
           ref={buttonRef}
@@ -84,20 +84,32 @@ export default function Page() {
       <div id="land">
         <Land />
       </div>
-      <div id="about">
-        <Intro />
-        <Characters />
-        <div className="hidden md:block">
+      <div id="omoss">
+        <div id="intro">
+          <Intro />
+        </div>
+        <div id="medlemmar">
+          <Characters />
+        </div>
+        <div id="recensioner" className="hidden md:block">
           <Reviews />
         </div>
       </div>
-      <div id="music">
-        <Music />
-        <Videos />
+      <div id="diskografi">
+        <div id="musik">
+          <Music />
+        </div>
+        <div id="filmer">
+          <Videos />
+        </div>
       </div>
-      <div id="contact">
-        <Form />
-        <Footer />
+      <div id="kontakt">
+        <div id="form">
+          <Form />
+        </div>
+        <div id="footer">
+          <Footer />
+        </div>
       </div>
     </main >
   );

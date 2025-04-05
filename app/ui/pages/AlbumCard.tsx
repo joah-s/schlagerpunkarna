@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { ArrowUpRight, Music } from 'lucide-react';
+import { ArrowUpRight, Music, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface AlbumCardProps {
@@ -39,7 +39,7 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
             </div>
 
             <motion.div 
-                className={`overflow-hidden rounded-lg shadow-lg transform transition-all duration-300 ${clickable ? 'hover:scale-[1.02]' : ''} relative`}
+                className={`overflow-hidden rounded-lg shadow-lg transform transition-all duration-300 ${clickable ? 'hover:scale-[1.02] border-2 border-transparent hover:border-purple-500' : ''} relative`}
                 whileHover={clickable ? { scale: 1.02, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" } : {}}
             >
                 {/* Image container with hover effect */}
@@ -48,6 +48,8 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                     onClick={clickable ? () => window.open(link, '_blank') : undefined}
                 >
                     <div className="sm:aspect-[3/4] aspect-square relative">
+                        {/* Removed the top icon badge */}
+                        
                         {/* Hover overlay */}
                         {clickable && (
                             <div className="absolute inset-0 bg-purple-900/0 group-hover:bg-purple-900/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-10">
@@ -69,7 +71,7 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                     </div>
                 </div>
                 
-                {/* Songs Table (shown on hover) */}
+                {/* Songs Table (shown on hover) - COMMENTED OUT FOR NOW
                 {isHovered && songs && songs.length > 0 && (
                     <motion.div 
                         className="absolute top-0 left-0 w-full h-full text-white p-4 overflow-auto hidden md:block bg-black bg-opacity-80 z-20"
@@ -94,6 +96,7 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                         </table>
                     </motion.div>
                 )}
+                */}
                 
                 {/* Description */}
                 <div className="py-4 px-3 transform transition-all duration-300 bg-gradient-to-b from-gray-900 to-black">
@@ -101,12 +104,22 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                         <h3 className={`text-xl font-bold text-white mb-2 ${clickable ? 'group-hover:text-purple-400' : ''} transition-colors`}>
                             {title}
                         </h3>
-                        <ArrowUpRight className={`w-4 h-4 text-purple-400 ${clickable ? 'opacity-0 group-hover:opacity-100' : 'opacity-0'} transition-opacity duration-300`} />
+                        {clickable && (
+                            <ExternalLink className="w-4 h-4 text-purple-400 transition-opacity duration-300 -mt-2" />
+                        )}
                     </div>
                     {description && (
                         <p className={`text-gray-300 text-sm opacity-80 ${clickable ? 'group-hover:opacity-100' : ''} transition-opacity duration-300 line-clamp-3`}>
                             {description}
                         </p>
+                    )}
+                    
+                    {/* "Click to listen" text for clickable cards */}
+                    {clickable && (
+                        <div className="mt-2 text-sm text-purple-400 font-medium flex items-center gap-1">
+                            <span>Click to listen</span>
+                            <ArrowUpRight className="w-3 h-3" />
+                        </div>
                     )}
                 </div>
             </motion.div>

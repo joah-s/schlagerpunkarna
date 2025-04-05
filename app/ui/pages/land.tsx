@@ -102,7 +102,7 @@ export default function Land() {
                   ))
                 )}
               </h1>
-              <div className="mx-auto text-md md:text-xl lg:text-3xl text-gray-300 mb-6 md:mb-8 font-Viga
+              <div className="mx-auto text-md md:text-lg lg:text-2xl text-gray-300 mb-6 md:mb-8 font-Viga
                  transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                 {isMobile ? (
                   // No animation for mobile
