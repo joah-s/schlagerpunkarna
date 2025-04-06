@@ -86,7 +86,7 @@ export const InfiniteMovingCards = ({
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex min-w-full py-16 shrink-0 gap-4 w-max flex-nowrap",
+          "flex min-w-full py-16 shrink-0 gap-8 w-max flex-nowrap",
           start && "animate-scroll"
         )}
       >
@@ -97,20 +97,20 @@ export const InfiniteMovingCards = ({
           >
             <blockquote 
               className={cn(
-                "bg-gray-800/40 h-full shadow-lg p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:border-gray-600/50",
+                "bg-gray-800/40 h-full shadow-lg p-8 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:border-gray-600/50",
                 pauseOnHover && "hover:[animation-play-state:paused]"
               )}
             >
               <div className="flex flex-col items-center">
                 {/* Header with name and role */}
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-indigo-300">{item.name}</h3>
-                  <div className="h-1 w-16 bg-indigo-500/50 mx-auto my-2"></div>
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-indigo-300 mb-4">{item.name}</h3>
+                  <div className="h-1 w-16 bg-indigo-500/50 mx-auto my-4"></div>
                   <p className="text-base uppercase text-gray-300">{item.role}</p>
                 </div>
                 
                 {/* Image with frame */}
-                <div className="p-1 mb-6">
+                <div className="p-2 mb-8">
                   <img
                     className="w-40 h-40 object-cover rounded-xl"
                     src={item.imgSrc}

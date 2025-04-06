@@ -18,7 +18,7 @@ export default function NameCollector() {
         setStatus("");
 
         try {
-            const webhookUrl = "https://script.google.com/macros/s/AKfycbylC_6gHsPEZerbz05fRy6RvsRtD7h7CCFUI-e7li7ADWPTX9HZGv7ZdvT9Im3tY1jq/exec"; // <- use your URL
+            const webhookUrl = "https://script.google.com/macros/s/AKfycbylC_6gHsPEZerbz05fRy6RvsRtD7h7CCFUI-e7li7ADWPTX9HZGv7ZdvT9Im3tY1jq/exec";
 
             const res = await fetch(webhookUrl, {
                 method: "POST",
@@ -30,7 +30,6 @@ export default function NameCollector() {
                 setStatus("Tack! Ditt namn har lagts till i vår lista!");
                 setName("");
 
-                // Reset success state after 3 seconds
                 setTimeout(() => {
                     setIsSuccess(false);
                 }, 3000);
@@ -46,8 +45,7 @@ export default function NameCollector() {
     };
 
     return (
-        <div className="font-Viga  relative py-20 flex flex-col items-center justify-center overflow-hidden">
-            {/* Background with overlay */}
+        <div className="font-Viga relative py-16 flex flex-col items-center justify-center overflow-hidden">
             <div className="absolute inset-0 -z-10">
                 <img
                     src="/backgrounds/formBackground.jpg"
@@ -58,36 +56,34 @@ export default function NameCollector() {
             </div>
 
             <div className="w-full max-w-2xl mx-auto px-4">
-                {/* Heading */}
-                <div className="text-center mb-12 font-extrabold uppercase tracking-wider text-white ">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl  font-bold text-white mb-4">
+                <div className="text-center mb-8 font-extrabold uppercase tracking-wider text-white">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                         {textData.nameCollector.heading}
                     </h2>
                     <div className="h-1 w-32 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto" />
                 </div>
 
                 <div className="bg-gray-900/70 p-8 rounded-xl border border-gray-700 shadow-2xl">
-                    <p className="text-gray-300 mb-6 text-center">
+                    <p className="text-gray-300 mb-8 text-center">
                         {textData.nameCollector.paragraph}
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-8">
                         <div>
                             <label
                                 htmlFor="name"
-                                className="block mb-2 text-sm font-medium text-gray-200"
+                                className="block mb-4 text-sm font-medium text-gray-200"
                             >
                                 Ditt namn 
                             </label>
                             <div className="relative">
-                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                                 <input
                                     type="text"
                                     id="name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    
-                                    className="w-full pl-10 pr-4 py-3 rounded-lg bg-gray-900/50 border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
+                                    className="w-full pl-12 pr-4 py-4 rounded-lg bg-gray-900/50 border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
                                 />
                             </div>
                         </div>
@@ -96,14 +92,14 @@ export default function NameCollector() {
                             type="submit"
                             disabled={isSubmitting || isSuccess || !name.trim()}
                             className={`w-full p-4 rounded-lg font-medium text-white transition-all transform
-                ${isSuccess
+                                ${isSuccess
                                     ? 'bg-green-500 hover:bg-green-600'
                                     : 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600'
                                 } 
-                disabled:opacity-50 disabled:cursor-not-allowed
-                hover:scale-[1.02] active:scale-[0.98]`}
+                                disabled:opacity-50 disabled:cursor-not-allowed
+                                hover:scale-[1.02] active:scale-[0.98]`}
                         >
-                            <span className="flex items-center justify-center gap-2">
+                            <span className="flex items-center justify-center gap-4">
                                 {isSuccess ? (
                                     <>
                                         <CheckCircle className="w-5 h-5" />
@@ -122,7 +118,7 @@ export default function NameCollector() {
                     </form>
 
                     {status && (
-                        <div className={`mt-4 p-3 rounded-lg text-center text-sm ${isSuccess ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}>
+                        <div className={`mt-4 p-4 rounded-lg text-center text-sm ${isSuccess ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}>
                             {status}
                         </div>
                     )}

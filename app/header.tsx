@@ -113,7 +113,7 @@ const Header = () => {
     <nav className={`font-Viga fixed w-full z-50 transition-all duration-500 backdrop-blur-sm bg-black/80 py-4 
       ${scrolled ? '' : ' bg-black/80 sm:bg-transparent'}
       sm:top-0 bottom-auto`}>
-      <div className="mx-auto px-6 sm:px-10 lg:px-8 lg:py-2">
+      <div className="mx-auto px-4 sm:px-8 lg:px-16 lg:py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 transition-transform duration-500 ease-in-out hover:scale-110">
@@ -121,23 +121,23 @@ const Header = () => {
               <img
                 src="icons/spLogo.png"
                 alt="Logo"
-                className="w-8 h-8 mb-1 object-contain transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                className="w-8 h-8 mb-2 object-contain transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
               />
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden sm:flex items-center justify-center space-x-4 w-full">
+          <div className="hidden sm:flex items-center justify-center space-x-8 w-full">
             {navLinks.map((link) => (
               <div key={link.name} className="flex flex-col items-center">
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="hover:scale-105 text-sm py-1 w-32 text-center rounded-2xl text-lg text-gray-300 hover:text-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col items-center"
+                  className="hover:scale-105 text-sm py-2 w-32 text-center rounded-2xl text-lg text-gray-300 hover:text-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col items-center"
                 >
                   {link.name}
                   <div 
-                    className={`h-2 w-2 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] mt-1 ${activeSection === link.id ? 'bg-yellow-400 scale-125' : 'bg-white'}`}
+                    className={`h-2 w-2 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] mt-2 ${activeSection === link.id ? 'bg-yellow-400 scale-125' : 'bg-white'}`}
                   ></div>
                 </a>
               </div>
@@ -152,9 +152,9 @@ const Header = () => {
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               {isOpen ? (
-                <X className="h-10 w-10 sm:h-8 sm:w-8 transform transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] rotate-0 hover:rotate-90" />
+                <X className="h-8 w-8 sm:h-8 sm:w-8 transform transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] rotate-0 hover:rotate-90" />
               ) : (
-                <Menu className="h-10 w-10 sm:h-8 sm:w-8 transform transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-110" />
+                <Menu className="h-8 w-8 sm:h-8 sm:w-8 transform transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-110" />
               )}
             </button>
           </div>
@@ -170,7 +170,7 @@ const Header = () => {
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className="fixed inset-0 bg-black/95 backdrop-blur-md z-40 top-0 left-0 right-0 bottom-0 h-screen overflow-y-auto"
             >
-              <div className="mt-[15vh] px-4 pt-2 pb-3 space-y-1 flex flex-col items-center">
+              <div className="mt-[15vh] px-4 pt-4 pb-4 space-y-2 flex flex-col items-center">
                 {/* Main navigation links */}
                 {navLinks.map((link, index) => (
                   <motion.div 
@@ -188,16 +188,16 @@ const Header = () => {
                     <a
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="flex items-center text-xl font-bold text-gray-200 hover:text-white transition-colors duration-200 py-3"
+                      className="flex items-center text-xl font-bold text-gray-200 hover:text-white transition-colors duration-200 py-2"
                     >
                       <div 
-                        className={`h-3 w-3 mr-3 ${activeSection === link.id ? 'bg-yellow-400' : 'bg-gray-600'}`}
+                        className={`h-3 w-3 mr-4 ${activeSection === link.id ? 'bg-yellow-400' : 'bg-gray-600'}`}
                       ></div>
                       {link.name}
                     </a>
                     
                     {/* Sub-navigation links */}
-                    <div className="ml-6 mt-2 space-y-2">
+                    <div className="ml-8 mt-4 space-y-4">
                       {subNavLinks
                         .filter(subLink => subLink.parent === link.id)
                         .map((subLink, subIndex) => (

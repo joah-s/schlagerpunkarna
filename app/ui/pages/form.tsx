@@ -76,7 +76,7 @@ export default function Form() {
   };
 
   return (
-    <div className="font-Viga relative py-20 flex flex-col antialiased items-center justify-center overflow-hidden">
+    <div className="font-Viga relative py-16 flex flex-col antialiased items-center justify-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 -z-10">
         <img
@@ -89,7 +89,7 @@ export default function Form() {
 
       <div className="w-full max-w-2xl mx-auto px-4">
         {/* Heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-mono font-bold text-white mb-4">
             {textData.form.heading}
           </h2>
@@ -97,11 +97,11 @@ export default function Form() {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-200"
+              className="block mb-4 text-sm font-medium text-gray-200"
             >
               Din email-adress
             </label>
@@ -111,20 +111,20 @@ export default function Form() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full p-3 bg-gray-900/50 border ${
+              className={`w-full p-4 bg-gray-900/50 border ${
                 errors.email ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors`}
               placeholder="roger.punkare@hotmail.com"
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+              <p className="mt-2 text-sm text-red-500">{errors.email}</p>
             )}
           </div>
 
           <div>
             <label
               htmlFor="title"
-              className="block mb-2 text-sm font-medium text-gray-200"
+              className="block mb-4 text-sm font-medium text-gray-200"
             >
               Titel
             </label>
@@ -134,19 +134,19 @@ export default function Form() {
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className={`w-full p-3 bg-gray-900/50 border ${
+              className={`w-full p-4 bg-gray-900/50 border ${
                 errors.title ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors`}
             />
             {errors.title && (
-              <p className="mt-1 text-sm text-red-500">{errors.title}</p>
+              <p className="mt-2 text-sm text-red-500">{errors.title}</p>
             )}
           </div>
 
           <div>
             <label
               htmlFor="message"
-              className="block mb-2 text-sm font-medium text-gray-200"
+              className="block mb-4 text-sm font-medium text-gray-200"
             >
               Skriv
             </label>
@@ -156,12 +156,12 @@ export default function Form() {
               value={formData.message}
               onChange={handleChange}
               rows={5}
-              className={`w-full p-3 bg-gray-900/50 border ${
+              className={`w-full p-4 bg-gray-900/50 border ${
                 errors.message ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none`}
             />
             {errors.message && (
-              <p className="mt-1 text-sm text-red-500">{errors.message}</p>
+              <p className="mt-2 text-sm text-red-500">{errors.message}</p>
             )}
           </div>
 
@@ -176,17 +176,17 @@ export default function Form() {
               disabled:opacity-50 disabled:cursor-not-allowed
               hover:scale-[1.02] active:scale-[0.98]`}
           >
-            <span className="flex items-center justify-center gap-2">
+            <span className="flex items-center justify-center gap-4">
               {isSuccess ? (
                 <>
-                  <CheckCircle className="w-5 h-5" />
+                  <CheckCircle className="w-6 h-6" />
                   Skickat!
                 </>
               ) : isSubmitting ? (
                 "Skickar..."
               ) : (
                 <>
-                  <SendHorizontal className="w-5 h-5" />
+                  <SendHorizontal className="w-6 h-6" />
                   Skicka
                 </>
               )}

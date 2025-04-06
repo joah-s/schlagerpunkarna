@@ -39,7 +39,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   }, []);
   
   return (
-    <div className="group relative overflow-hidden py-6 transition-all hover:shadow-xl">
+    <div className="group relative overflow-hidden py-8 transition-all hover:shadow-xl">
       <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
         {/* Image container with overlay effect */}
         {isMobile ? (
@@ -78,7 +78,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         )}
 
         {/* Text content */}
-        <div className="flex-1 space-y-3">
+        <div className="flex-1 space-y-4">
           <div>
             {isMobile ? (
               <h3 className="font-Viga text-xl font-bold text-white sm:text-2xl md:text-3xl transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
@@ -96,7 +96,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
             )}
             
             {isMobile ? (
-              <p className="font-Viga text-md text-indigo-400 sm:text-lg md:text-xl py-1 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+              <p className="font-Viga text-md text-indigo-400 sm:text-lg md:text-xl py-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                 {role}
               </p>
             ) : (
@@ -104,7 +104,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="font-Viga text-md text-indigo-400 sm:text-lg md:text-xl py-1 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+                className="font-Viga text-md text-indigo-400 sm:text-lg md:text-xl py-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
               >
                 {role}
               </motion.p>

@@ -15,8 +15,6 @@ import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import NameCollector from './ui/components/NameCollector';
 
-
-
 function scrollToElement(id: string) {
   const element = document.getElementById(id);
 
@@ -59,7 +57,7 @@ export default function Page() {
   };
 
   return (
-    <main className="relative text-white ">
+    <main className="relative text-white">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet" />
@@ -67,7 +65,7 @@ export default function Page() {
 
       <Header />
       <motion.div
-        className={`fixed bottom-0 right-3 mb-3 z-50 transition-all duration-300 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed bottom-4 right-4 mb-4 z-50 transition-all duration-300 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         <button
           ref={buttonRef}
@@ -115,6 +113,6 @@ export default function Page() {
           <Footer />
         </div>
       </div>
-    </main >
+    </main>
   );
 }

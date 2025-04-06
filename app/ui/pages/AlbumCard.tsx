@@ -26,13 +26,12 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            {/* Year display */}
             <div className="absolute -top-12 left-0 w-full">
                 <motion.div 
                     className="relative inline-flex flex-col items-center"
                     whileHover={{ scale: 1.05 }}
                 >
-                    <span className="text-2xl font-bold text-white mb-2 opacity-90 bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent">
+                    <span className="text-2xl font-bold text-white mb-4 opacity-90 bg-gradient-to-r from-purple-500 to-indigo-600 bg-clip-text text-transparent">
                         {year}
                     </span>
                 </motion.div>
@@ -42,20 +41,16 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                 className={`overflow-hidden rounded-lg shadow-lg transform transition-all duration-300 ${clickable ? 'hover:scale-[1.02] border-2 border-transparent hover:border-purple-500' : ''} relative`}
                 whileHover={clickable ? { scale: 1.02, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" } : {}}
             >
-                {/* Image container with hover effect */}
                 <div 
                     className={`block group relative ${clickable ? 'cursor-pointer' : ''}`} 
                     onClick={clickable ? () => window.open(link, '_blank') : undefined}
                 >
                     <div className="aspect-[8/5] md:aspect-[3/4] relative overflow-hidden">
-                        {/* Removed the top icon badge */}
-                        
-                        {/* Hover overlay */}
                         {clickable && (
                             <div className="absolute inset-0 bg-purple-900/0 group-hover:bg-purple-900/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-10">
                                 <motion.div
                                     whileHover={{ rotate: 45 }}
-                                    className="bg-purple-600 rounded-full p-2"
+                                    className="bg-purple-600 rounded-full p-4"
                                 >
                                     <ArrowUpRight className="w-8 h-8 text-white" />
                                 </motion.div>
@@ -71,37 +66,9 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                     </div>
                 </div>
                 
-                {/* Songs Table (shown on hover) - COMMENTED OUT FOR NOW
-                {isHovered && songs && songs.length > 0 && (
-                    <motion.div 
-                        className="absolute top-0 left-0 w-full h-full text-white p-4 overflow-auto hidden md:block bg-black bg-opacity-80 z-20"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        <div className="flex items-center gap-2 mb-3 border-b border-purple-500 pb-2">
-                            <Music className="text-purple-400" size={18} />
-                            <h4 className="font-bold text-purple-400">Tracklist</h4>
-                        </div>
-                        <table className="w-full text-sm">
-                            <tbody>
-                                {songs.map((song) => (
-                                    <tr key={song.number} className="border-b border-gray-700 hover:bg-purple-900/30 transition-colors">
-                                        <td className="py-1 pr-2 text-purple-300">{song.number}</td>
-                                        <td className="py-1 font-medium">{song.title}</td>
-                                        <td className="py-1 text-right text-gray-400">{song.length}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </motion.div>
-                )}
-                */}
-                
-                {/* Description */}
-                <div className="py-4 px-3 transform transition-all duration-300 bg-gradient-to-b from-gray-900 to-black">
-                    <div className="flex items-center gap-2">
-                        <h3 className={`text-xl font-bold text-white mb-2 ${clickable ? 'group-hover:text-purple-400' : ''} transition-colors`}>
+                <div className="py-4 px-4 transform transition-all duration-300 bg-gradient-to-b from-gray-900 to-black">
+                    <div className="flex items-center gap-4">
+                        <h3 className={`text-xl font-bold text-white mb-4 ${clickable ? 'group-hover:text-purple-400' : ''} transition-colors`}>
                             {title}
                         </h3>
                         {clickable && (
@@ -112,14 +79,6 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                         <p className={`text-gray-300 text-sm opacity-80 ${clickable ? 'group-hover:opacity-100' : ''} transition-opacity duration-300 line-clamp-3`}>
                             {description}
                         </p>
-                    )}
-                    
-                    {/* "Click to listen" text for clickable cards */}
-                    {clickable && (
-                        <div className="mt-2 text-sm text-purple-400 font-medium flex items-center gap-1">
-                            <span>Click to listen</span>
-                            <ArrowUpRight className="w-3 h-3" />
-                        </div>
                     )}
                 </div>
             </motion.div>
