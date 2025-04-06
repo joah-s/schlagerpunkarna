@@ -110,34 +110,7 @@ export default function Page() {
         <div id="form">
           <NameCollector />
         </div>
-        <div className="w-full py-12 bg-gradient-to-t from-purple-900 to-black">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8 px-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
-            >
-              <Link
-                href="/historia"
-                className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
-              >
-                Vår Historia
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
-            >
-              <Link
-                href="/boka"
-                className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
-              >
-                Boka Oss
-              </Link>
-            </motion.div>
-          </div>
-        </div>
+        
         <div id="footer">
           <Footer />
         </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { SendHorizontal, CheckCircle, Search } from "lucide-react";
+import { textData } from "@/app/lib/textData";
 
 export default function NameCollector() {
     const [name, setName] = useState("");
@@ -26,7 +27,7 @@ export default function NameCollector() {
 
             if (res.ok) {
                 setIsSuccess(true);
-                setStatus("Ditt namn har lagts till!");
+                setStatus("Tack! Ditt namn har lagts till i vår lista!");
                 setName("");
 
                 // Reset success state after 3 seconds
@@ -60,14 +61,14 @@ export default function NameCollector() {
                 {/* Heading */}
                 <div className="text-center mb-12 font-extrabold uppercase tracking-wider text-white ">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl  font-bold text-white mb-4">
-                        Namninsamling
+                        {textData.nameCollector.heading}
                     </h2>
                     <div className="h-1 w-32 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto" />
                 </div>
 
                 <div className="bg-gray-900/70 p-8 rounded-xl border border-gray-700 shadow-2xl">
                     <p className="text-gray-300 mb-6 text-center">
-                        Schlagerpunkarna borde få vara med i Melodifestivalen 2026. Skriv in ditt namn för att visa att du stöder schlanarkismens budskap.
+                        {textData.nameCollector.paragraph}
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-6">
@@ -76,7 +77,7 @@ export default function NameCollector() {
                                 htmlFor="name"
                                 className="block mb-2 text-sm font-medium text-gray-200"
                             >
-                                Ditt namn
+                                Ditt namn 
                             </label>
                             <div className="relative">
                                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -85,7 +86,7 @@ export default function NameCollector() {
                                     id="name"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    placeholder="Ditt namn"
+                                    
                                     className="w-full pl-10 pr-4 py-3 rounded-lg bg-gray-900/50 border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
                                 />
                             </div>

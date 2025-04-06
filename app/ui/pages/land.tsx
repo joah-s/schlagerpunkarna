@@ -158,6 +158,36 @@ export default function Land() {
               )}
               
             </div>
+            {/* Call to Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+              {isMobile ? (
+                // No animation for mobile
+                <Link
+                  href="/boka"
+                  className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+                >
+                  Boka Oss
+                </Link>
+              ) : (
+                // Animated version for larger screens
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.5 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Link
+                    href="/historia"
+                    className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+                  >
+                    Historia
+                  </Link>
+                </motion.div>
+              )}
+              
+            </div>
           </div>
 
           {/* Scroll Indicator */}
