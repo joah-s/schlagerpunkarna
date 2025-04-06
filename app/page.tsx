@@ -65,7 +65,7 @@ export default function Page() {
 
       <Header />
       <motion.div
-        className={`fixed bottom-4 right-4 mb-4 z-50 transition-all duration-300 hidden sm:block ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed bottom-8 right-8 z-50 transition-all duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         <button
           ref={buttonRef}

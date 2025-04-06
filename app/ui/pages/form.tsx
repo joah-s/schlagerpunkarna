@@ -91,7 +91,7 @@ export default function Form() {
         {/* Heading */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-mono font-bold text-white mb-4">
-            {textData.form.heading}
+           
           </h2>
           <div className="h-1 w-32 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto" />
         </div>
