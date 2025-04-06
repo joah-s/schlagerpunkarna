@@ -152,7 +152,7 @@ export const textData = {
       {
         "name": "Melodifestivalen",
         "year": "2026",
-        "imgSrc": "shows/melodifestivalen.png",
+        "imgSrc": "shows/melodifestivalen.jpg",
         "description": "Mellanakt i Mello? Påverka din lokala SVT-lobbyist och få det att hända!",
         "clickable": false
       },
@@ -165,7 +165,7 @@ export const textData = {
         {
           name: "Sarek",
           role: "Sångare",
-          description: "Schlagerpunkarna har gjort en helt fantastisk cover av Genom eld & vatten! 🔥",
+          description: "Schlagerpunkarna har gjort en helt fantastisk cover av Genom eld & vatten!",
           imgSrc:"../reviews/pic-sarek.png",
         },
         {
@@ -209,9 +209,9 @@ export const textData = {
         },
       ],
     },
-    form: {
-      heading: "Skriv till oss!",
-      paragraph: "",
+    nameCollector: {
+      heading: "Namninsamling",
+      paragraph: "Schlagerpunkarna borde få vara med i Melodifestivalen 2026. Skriv in ditt namn för att visa att du stöder schlanarkismens budskap.",
     },
     footer: {
       heading: "SCHLAGERPUNKARNA",

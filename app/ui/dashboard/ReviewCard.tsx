@@ -16,23 +16,33 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   return (
     <section className="md:bg-gray-100 py-8">
       <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <div className="px-6 py-8 flex flex-col items-center">
-            <img
-              className="w-32 h-32 object-cover rounded-full border-4 border-gray-200 mb-4"
-              src={imgSrc}
-              alt={name}
-            />
-            <div className="text-center">
-              <h3 className="text-xl font-semibold text-gray-800">{name}</h3>
-              <p className="text-sm text-gray-600 uppercase mt-1">{role}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div
+            key={imgSrc}
+            className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+          >
+            <div className="flex items-center mb-4">
+              <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-purple-400">
+                <img
+                  src={imgSrc}
+                  alt={name}
+                  className="w-full h-full object-cover"
+                  
+                />
+              </div>
+              <div>
+                <h3 className="font-bold text-xl">{name}</h3>
+                <p className="text-purple-300">{role}</p>
+              </div>
             </div>
-            <div className="mt-8">
-              <p className="text-base text-gray-700 leading-relaxed">
-                {quote}
-              </p>
+            <div className="relative">
+              <div className="text-3xl absolute -top-5 -left-2 text-purple-400">"</div>
+              <p className="italic text-gray-100 pl-4">{quote}</p>
+              <div className="text-3xl absolute -bottom-8 right-0 text-purple-400">"</div>
             </div>
           </div>
+          
         </div>
       </div>
     </section>
