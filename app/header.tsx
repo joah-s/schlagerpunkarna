@@ -47,8 +47,15 @@ const Header = () => {
     setIsOpen(false);
     
     const targetId = href.replace('#', '');
-    const targetElement = document.getElementById(targetId);
     
+    // If we're not on the main page, navigate to main page with hash
+    if (window.location.pathname !== '/') {
+      window.location.href = `/${href}`;
+      return;
+    }
+    
+    // If we're on the main page, scroll to the section
+    const targetElement = document.getElementById(targetId);
     if (targetElement) {
       // Apply different offsets based on section
       let offset = 0;
@@ -63,6 +70,24 @@ const Header = () => {
         behavior: 'smooth'
       });
     }
+  };
+
+  // Function to handle logo click
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    // If we're not on the main page, navigate to main page
+    if (window.location.pathname !== '/') {
+      window.location.href = '/';
+      return;
+    }
+    
+    // If we're on the main page, scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   const navLinks = [
@@ -92,11 +117,13 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 transition-transform duration-500 ease-in-out hover:scale-110">
-            <img
-              src="icons/spLogo.png"
-              alt="Logo"
-              className="w-8 h-8 mb-1 object-contain transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-            />
+            <a href="/" onClick={handleLogoClick}>
+              <img
+                src="icons/spLogo.png"
+                alt="Logo"
+                className="w-8 h-8 mb-1 object-contain transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}

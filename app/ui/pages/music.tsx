@@ -26,10 +26,10 @@ export default function Music() {
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      
+
       // Show left arrow only if not at the beginning
       setShowLeftArrow(scrollLeft > 10);
-      
+
       // Show right arrow only if not at the end
       setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
     }
@@ -40,14 +40,14 @@ export default function Music() {
     if (typeof window !== 'undefined') {
       // Set initial state
       setIsMobile(window.innerWidth < 640);
-      
+
       // Add resize listener
       const handleResize = () => {
         setIsMobile(window.innerWidth < 640);
       };
-      
+
       window.addEventListener('resize', handleResize);
-      
+
       // Clean up
       return () => window.removeEventListener('resize', handleResize);
     }
@@ -58,10 +58,10 @@ export default function Music() {
     const scrollContainer = scrollRef.current;
     if (scrollContainer) {
       scrollContainer.addEventListener('scroll', handleScroll);
-      
+
       // Initial check for arrow visibility
       handleScroll();
-      
+
       return () => {
         scrollContainer.removeEventListener('scroll', handleScroll);
       };
@@ -97,7 +97,7 @@ export default function Music() {
               ))}
             </h2>
           )}
-          
+
           {isMobile ? (
             // No animation for mobile
             <div className="mb-12">
@@ -107,7 +107,7 @@ export default function Music() {
             </div>
           ) : (
             // Animated version for larger screens
-            <motion.div 
+            <motion.div
               className=" mb-12"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
@@ -168,28 +168,31 @@ export default function Music() {
               className="overflow-x-auto scrollbar-thin scrollbar-track-gray-800/30 scrollbar-thumb-purple-500/50 hover:scrollbar-thumb-purple-500 pb-4 pt-8 scroll-smooth snap-x snap-mandatory"
             >
               <div className="inline-flex gap-4 py-4">
-                {textData.timeline.discografi.map((album, i) => (
-                  <div key={i} className="flex-shrink-0 w-60 snap-start">
-                    <AlbumCard
-                      src={album.imgSrc}
-                      title={album.name}
-                      description={album.description}
-                      year={album.year}
-                      link={album.link ? album.link : "#"}
-                      songs={album.songs}
-                      clickable={album.clickable}
-                    />
-                  </div>
-                ))}
+                {textData.timeline.discografi
+                  .filter((album) => album.clickable)
+                  .map((album, i) => (
+                    <div key={i} className="flex-shrink-0 w-60 snap-start">
+                      <AlbumCard
+                        src={album.imgSrc}
+                        title={album.name}
+                        description={album.description}
+                        year={album.year}
+                        link={album.link ? album.link : "#"}
+                        songs={album.songs}
+                        clickable={album.clickable}
+                      />
+                    </div>
+                  ))}
               </div>
             </div>
           </div>
 
-          {/* Mobile Version with vertical timeline */}
-          <div className="md:hidden space-y-12 ">
-            <div className=" relative ">
-              {textData.timeline.discografi.map((album, i) => (
-                <div key={i} className="mb-24  w-full">
+          {/* Mobile Version with vertical layout */}
+          <div className="md:hidden space-y-12">
+            {textData.timeline.discografi
+              .filter((album) => album.clickable)
+              .map((album, i) => (
+                <div key={i} className="w-full mb-8">
                   <AlbumCard
                     src={album.imgSrc}
                     title={album.name}
@@ -201,7 +204,6 @@ export default function Music() {
                   />
                 </div>
               ))}
-            </div>
           </div>
         </div>
       </div>

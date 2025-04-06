@@ -47,7 +47,7 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                     className={`block group relative ${clickable ? 'cursor-pointer' : ''}`} 
                     onClick={clickable ? () => window.open(link, '_blank') : undefined}
                 >
-                    <div className="sm:aspect-[3/4] aspect-square relative">
+                    <div className="aspect-[8/5] md:aspect-[3/4] relative overflow-hidden">
                         {/* Removed the top icon badge */}
                         
                         {/* Hover overlay */}
@@ -66,7 +66,7 @@ const AlbumCard = ({ src, title, description, year, link, songs, clickable = tru
                         <img
                             src={src}
                             alt={title}
-                            className={`object-cover w-full h-full transition-transform duration-500 ease-out ${clickable ? 'group-hover:scale-110' : ''} rounded-t-lg`}
+                            className={`object-cover w-full h-full transition-transform duration-500 ease-out ${clickable ? 'group-hover:scale-110 group-hover:translate-y-[-5%]' : ''} rounded-t-lg`}
                         />
                     </div>
                 </div>
