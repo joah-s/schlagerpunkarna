@@ -4,6 +4,7 @@ import { textData } from '../../lib/textData';
 import { ArrowDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function Land() {
   const [isMobile, setIsMobile] = useState(false);
@@ -131,31 +132,29 @@ export default function Land() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
               {isMobile ? (
                 // No animation for mobile
-                <button 
-                  onClick={scrollToNextSection}
-                  className="group relative inline-flex items-center justify-center px-8 py-3 
-                  text-lg font-medium text-white bg-gray-800 hover:bg-gray-700
-                  rounded-full overflow-hidden transition-all duration-300
-                  transform hover:scale-105
-                  focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900">
-                  Utforska
-                  <ArrowDown className="ml-2 h-5 w-5 transform group-hover:translate-y-1 transition-transform duration-300" />
-                </button>
+                <Link
+                  href="/boka"
+                  className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+                >
+                  Boka Oss
+                </Link>
               ) : (
                 // Animated version for larger screens
-                <motion.button 
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.5 }}
-                  onClick={scrollToNextSection}
-                  className="group relative inline-flex items-center justify-center px-8 py-3 
-                  text-lg font-medium text-white bg-gray-800 hover:bg-gray-700
-                  rounded-full overflow-hidden transition-all duration-300
-                  transform hover:scale-105
-                  focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900">
-                  Utforska
-                  <ArrowDown className="ml-2 h-5 w-5 transform group-hover:translate-y-1 transition-transform duration-300" />
-                </motion.button>
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Link
+                    href="/boka"
+                    className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+                  >
+                    Boka Oss
+                  </Link>
+                </motion.div>
               )}
               
             </div>

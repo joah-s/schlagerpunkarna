@@ -7,6 +7,7 @@ import Footer from './footer';
 import { textData } from "../../lib/textData";
 import AlbumCard from './AlbumCard';
 import Link from 'next/link';
+import NameCollector from '../components/NameCollector';
 
 export default function Historia() {
   const inViewRef = useRef(null);
@@ -135,6 +136,9 @@ export default function Historia() {
                 </motion.div>
               ))}
             </div>
+            <div id="form">
+          <NameCollector />
+        </div>
           </div>
         </div>
       </div>

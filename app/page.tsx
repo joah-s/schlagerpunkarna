@@ -13,7 +13,7 @@ import { motion, useSpring } from 'framer-motion';
 import Head from "next/head";
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
-import NameCollector from './ui/pages/NameCollector';
+import NameCollector from './ui/components/NameCollector';
 
 
 
@@ -117,7 +117,7 @@ export default function Page() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto"
             >
-              <Link 
+              <Link
                 href="/historia"
                 className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
               >
@@ -129,7 +129,7 @@ export default function Page() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto"
             >
-              <Link 
+              <Link
                 href="/boka"
                 className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
               >

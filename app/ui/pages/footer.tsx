@@ -127,11 +127,11 @@ const Footer = () => {
         {/* Logo and Description */}
           <div className=" flex flex-col gap-2 items-center text-center mx-auto py-10">
             <div className="flex items-center space-x-3">
-              <img src="/icons/spLogo.png" alt="Logo" className="w-8 h-8 mb-1" />
-              <h2 className="text-3xl font-bold">{textData.footer.heading}</h2>
+              <img src="/icons/spLogo.png" alt="Logo" className="w-6 h-6 sm:w-8 sm:h-8  mb-1" />
+              <h2 className="text-2xl sm:text-3xl font-bold">{textData.footer.heading}</h2>
             </div>
             <p className="text-gray-400 max-w-xs">{textData.footer.description}</p>
-            <p className="text-gray-400 pt-2">{new Date().getFullYear()} {textData.footer.heading}</p>
+            <p className="text-gray-400 pt-2">{new Date().getFullYear()} </p>
           </div>
       </div>
     </footer>
