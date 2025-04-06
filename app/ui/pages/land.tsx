@@ -14,14 +14,14 @@ export default function Land() {
     if (typeof window !== 'undefined') {
       // Set initial state
       setIsMobile(window.innerWidth < 640);
-      
+
       // Add resize listener
       const handleResize = () => {
         setIsMobile(window.innerWidth < 640);
       };
-      
+
       window.addEventListener('resize', handleResize);
-      
+
       // Clean up
       return () => window.removeEventListener('resize', handleResize);
     }
@@ -64,7 +64,7 @@ export default function Land() {
               id="tsparticlesfullpage"
               background="transparent"
               minSize={0.2}
-              maxSize={1.4}
+              maxSize={3.4}
               particleDensity={20}
               className="w-full h-full"
               particleColor="#FFFFFF"
@@ -72,38 +72,40 @@ export default function Land() {
           </div>
 
           {/* Content Container */}
-          <div className="absolute w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center ">
+          <div className="absolute w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 text-center">
             {/* Mobile Logo */}
             <img
-              className="mx-auto sm:hidden block h-32 py-3 transform hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+              className="mx-auto sm:hidden block h-32 py-4 transform hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
               src="icons/spLogo.png"
               alt="Logo"
             />
 
-            {/* Heading */}
+            {/* Heading with Chromatic Aberration only on sm screens and above */}
             <div className="mb-8">
-              <h1 className="font-TypoGraphica
+              <h1 className="font-TypoGraphica relative
                 text-[2.2rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7.5rem] 
-                 leading-none mb-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+                leading-none mb-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                 {isMobile ? (
-                  // No animation for mobile
-                  <span>{textData.landPage.heading}</span>
+                  // No chromatic aberration for mobile
+                  <span className="text-white">{textData.landPage.heading}</span>
                 ) : (
-                  // Animated version for larger screens
+                  // Animated version with chromatic aberration for larger screens
                   headingWords.map((word, i) => (
                     <motion.span
                       key={i}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.5, delay: i * 0.1 }}
-                      className="inline-block mr-2"
+                      className="inline-block mr-4 relative"
                     >
-                      {word}
+                      <span className="absolute left-[-2px] top-[2px] text-red-500 opacity-70 blur-[0.5px]">{word}</span>
+                      <span className="absolute left-[2px] top-[-2px] text-blue-500 opacity-70 blur-[0.5px]">{word}</span>
+                      <span className="relative text-white">{word}</span>
                     </motion.span>
                   ))
                 )}
               </h1>
-              <div className="mx-auto text-md md:text-lg lg:text-2xl text-gray-300 mb-6 md:mb-8 font-Viga
+              <div className="mx-auto text-md md:text-lg lg:text-2xl text-gray-300 mb-8 font-Viga
                  transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                 {isMobile ? (
                   // No animation for mobile
@@ -116,82 +118,35 @@ export default function Land() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.5, delay: 0.5 + (i * 0.05) }}
-                      className="inline-block mr-1"
+                      className="inline-block mr-2"
                     >
                       {word}
                     </motion.span>
                   ))
                 )}
               </div>
-
-              {/* Subheading */}
-              
             </div>
 
             {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              {isMobile ? (
-                // No animation for mobile
+            <div className="flex sm:flex-row gap-8 justify-center items-center mt-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.5 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className=""
+              >
                 <Link
                   href="/boka"
-                  className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
+                  className={`block  px-8 py-2 text-lg font-bold text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:from-purple-700 hover:to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_20px_rgba(168,85,247,0.7)] text-center font-Viga tracking-wider transform hover:-translate-y-1`}
                 >
-                  Boka Oss
+                  Boka Nu!
                 </Link>
-              ) : (
-                // Animated version for larger screens
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.5 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto"
-                >
-                  <Link
-                    href="/boka"
-                    className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
-                  >
-                    Boka Oss
-                  </Link>
-                </motion.div>
-              )}
-              
+              </motion.div>
             </div>
-            {/* Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-              {isMobile ? (
-                // No animation for mobile
-                <Link
-                  href="/boka"
-                  className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
-                >
-                  Boka Oss
-                </Link>
-              ) : (
-                // Animated version for larger screens
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1.5 }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto"
-                >
-                  <Link
-                    href="/historia"
-                    className="block w-full px-8 py-4 text-lg font-bold text-white bg-purple-700 hover:bg-purple-600 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl text-center"
-                  >
-                    Historia
-                  </Link>
-                </motion.div>
-              )}
-              
-            </div>
+
           </div>
-
-          {/* Scroll Indicator */}
-          
         </div>
       </div>
     </div>
