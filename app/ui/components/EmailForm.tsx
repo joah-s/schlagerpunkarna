@@ -101,10 +101,12 @@ export default function EmailForm() {
                     // Mobile layout (stacked)
                     <div className="flex flex-col">
                         {/* Content */}
-                        <div className="p-0">
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                                {textData.emailForm.heading}
-                            </h2>
+                        <div className="">
+                            
+                            <h3 className="text-white mb-8 text-center sm:text-left">
+                                {textData.footer.links.email}
+                            </h3>
+                            
                             <p className="text-gray-300 mb-8 text-center">
                                 {textData.emailForm.paragraph}
                             </p>
@@ -199,8 +201,11 @@ export default function EmailForm() {
                     // Desktop layout (side by side)
                     <div className="flex flex-row">
                         {/* Left column - Info */}
-                        <div className="w-1/2 p-8 flex flex-col justify-center">
+                        <div className="w-1/2  flex flex-col justify-center">
                             
+                            <h3 className="text-white text-2xl mb-8 text-center sm:text-left">
+                                {textData.footer.links.email}
+                            </h3>
                             <p className="text-gray-300 text-left">
                                 Vi i Schlagerpunkarna är glada att höra från dig! Vi älskar att spela och vi är alltid redo att spela på ditt event. Om det är något vi kan göra för att göra ditt event extra speciellt, så är vi redo att göra det. Maila oss gärna om du har några funderingar eller om du vill boka oss till ditt event.
                             </p>

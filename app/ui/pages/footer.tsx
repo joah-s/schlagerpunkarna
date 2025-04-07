@@ -48,7 +48,7 @@ const Footer = () => {
             <p className="text-gray-400">{textData.footer.links.email}</p>
             
             {/* Social Media Icons */}
-            <div className="flex space-x-8 mt-8 justify-center md:justify-start">
+            <div className="flex space-x-4 lg:space-x-8 mt-8 justify-center md:justify-start">
               {/* Facebook */}
               <motion.a 
                 href={textData.footer.links.facebook} 
@@ -113,6 +113,24 @@ const Footer = () => {
                 </div>
               </motion.a>
             </div>
+          </div>
+          
+          {/* Navigation Links - Only visible on larger screens */}
+          <div className="hidden md:block">
+            <h3 className="text-2xl font-semibold border-b border-gray-800 pb-4 text-white">Navigera</h3>
+            <ul className="mt-4 space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <a 
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
