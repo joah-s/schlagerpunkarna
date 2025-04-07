@@ -20,9 +20,9 @@ export default function Reviews() {
       <div className="font-Viga flex flex-col items-center z-20">
         <InfiniteMovingCards
           items={textData.reviews.reviewer.slice(0, 3)}
-          direction="right"
+          direction="left"
           speed="normal"
-          pauseOnHover={true}
+          pauseOnHover={false}
         />
       </div>
     </div>

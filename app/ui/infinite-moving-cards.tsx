@@ -87,47 +87,42 @@ export const InfiniteMovingCards = ({
         ref={scrollerRef}
         className={cn(
           "flex min-w-full py-16 shrink-0 gap-8 w-max flex-nowrap",
-          start && "animate-scroll"
+          start && "animate-scroll",
+          pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
         {items.map((item) => (
           <li
-            className="w-[350px] max-w-full relative flex-shrink-0 px-8 md:w-[450px]"
+            className="w-[380px] max-w-full relative flex-shrink-0 px-8 md:w-[480px]"
             key={item.name}
           >
-            <blockquote 
+            <div 
               className={cn(
-                "bg-gray-800/40 h-full shadow-lg p-8 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:border-gray-600/50",
-                pauseOnHover && "hover:[animation-play-state:paused]"
+                "bg-black shadow-lg h-full transition-all duration-300 hover:shadow-xl h flex flex-col items-center"
               )}
             >
-              <div className="flex flex-col items-center">
-                {/* Header with name and role */}
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-indigo-300 mb-4">{item.name}</h3>
-                  <div className="h-1 w-16 bg-indigo-500/50 mx-auto my-4"></div>
-                  <p className="text-base uppercase text-gray-300">{item.role}</p>
-                </div>
-                
-                {/* Image with frame */}
-                <div className="p-2 mb-8">
+              {/* Forum post header */}
+              <div className="bg-purple-900 p-4 flex items-center  w-full">
+                <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
                   <img
-                    className="w-40 h-40 object-cover rounded-xl"
+                    className="w-full h-full object-cover"
                     src={item.imgSrc}
                     alt={item.name}
                   />
                 </div>
-                
-                {/* Description with styled quotes */}
-                <div className="relative">
-                  <span className="absolute -top-4 -left-2 text-4xl text-indigo-500/40">"</span>
-                  <p className="text-base leading-relaxed text-gray-200 px-4">
-                    {item.description}
-                  </p>
-                  <span className="absolute -bottom-6 -right-2 text-4xl text-indigo-500/40">"</span>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white">{item.name}</h3>
+                  <p className="text-sm text-gray-400">{item.role}</p>
                 </div>
               </div>
-            </blockquote>
+              
+              {/* Comment content */}
+              <div className="p-8 w-full">
+                <p className="text-gray-300 text-base leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
           </li>
         ))}
       </ul>

@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import { SendHorizontal, CheckCircle } from "lucide-react";
 import { textData } from "@/app/lib/textData";
 
-export default function NameCollector() {
+export default function EmailForm() {
     const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
     const [status, setStatus] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -32,7 +34,7 @@ export default function NameCollector() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!name.trim() || hasSubmitted) return;
+        if (!name.trim() || !email.trim() || !message.trim() || hasSubmitted) return;
 
         setIsSubmitting(true);
         setStatus("");
@@ -42,19 +44,21 @@ export default function NameCollector() {
 
             const res = await fetch(webhookUrl, {
                 method: "POST",
-                body: new URLSearchParams({ name }),
+                body: new URLSearchParams({ name, email, message }),
             });
 
             if (res.ok) {
                 setIsSuccess(true);
                 setHasSubmitted(true);
-                setStatus("Tack! Ditt namn har lagts listan! #Mello26");
+                setStatus("Tack! Ditt meddelande har skickats!");
                 setName("");
+                setEmail("");
+                setMessage("");
                 
                 // No longer reset isSuccess state
                 // The button will stay in "Tillagt" mode
             } else {
-                setStatus("Det gick inte att skicka namnet. Försök igen.");
+                setStatus("Det gick inte att skicka meddelandet. Försök igen.");
             }
         } catch (err) {
             console.error(err);
@@ -96,25 +100,22 @@ export default function NameCollector() {
                 {isMobile ? (
                     // Mobile layout (stacked)
                     <div className="flex flex-col">
-                        {/* Header */}
-                        <div className="text-center font-extrabold uppercase tracking-wider text-white">
+                        {/* Content */}
+                        <div className="p-0">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                                {textData.nameCollector.heading}
+                                {textData.emailForm.heading}
                             </h2>
                             <p className="text-gray-300 mb-8 text-center">
-                                {textData.nameCollector.paragraph}
+                                {textData.emailForm.paragraph}
                             </p>
-                        </div>
 
-                        {/* Content */}
-                        <div className="p-8">
                             <form onSubmit={handleSubmit} className="space-y-8">
                                 <div>
                                     <label
                                         htmlFor="name-mobile"
                                         className="block mb-4 text-xl text-center font-medium text-white"
                                     >
-                                        {textData.nameCollector.form.nameLabel}
+                                        {textData.emailForm.form.nameLabel}
                                     </label>
                                     <div className="relative flex justify-center">
                                         <input
@@ -124,6 +125,46 @@ export default function NameCollector() {
                                             onChange={(e) => setName(e.target.value)}
                                             className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
+                                            placeholder="Anders Andersson"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label
+                                        htmlFor="email-mobile"
+                                        className="block mb-4 text-xl text-center font-medium text-white"
+                                    >
+                                        {textData.emailForm.form.emailLabel}
+                                    </label>
+                                    <div className="relative flex justify-center">
+                                        <input
+                                            type="email"
+                                            id="email-mobile"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles}`}
+                                            disabled={hasSubmitted}
+                                            placeholder="anders@example.com"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label
+                                        htmlFor="message-mobile"
+                                        className="block mb-4 text-xl text-center font-medium text-white"
+                                    >
+                                        {textData.emailForm.form.messageLabel}
+                                    </label>
+                                    <div className="relative flex justify-center">
+                                        <textarea
+                                            id="message-mobile"
+                                            value={message}
+                                            onChange={(e) => setMessage(e.target.value)}
+                                            className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles}`}
+                                            disabled={hasSubmitted}
+                                            rows={6}
                                         />
                                     </div>
                                 </div>
@@ -131,21 +172,21 @@ export default function NameCollector() {
                                 <div className="flex justify-center">
                                     <button
                                         type="submit"
-                                        disabled={isSubmitting || hasSubmitted || !name.trim()}
+                                        disabled={isSubmitting || hasSubmitted || !name.trim() || !email.trim() || !message.trim()}
                                         className={`${buttonStyles} ${buttonColorStyles}`}
                                     >
                                         <span className="flex items-center justify-center gap-4">
                                             {isSuccess ? (
                                                 <>
                                                     <CheckCircle className="w-5 h-5" />
-                                                    {textData.nameCollector.form.submitButton.success}
+                                                    {textData.emailForm.form.submitButton.success}
                                                 </>
                                             ) : isSubmitting ? (
-                                                textData.nameCollector.form.submitButton.submitting
+                                                textData.emailForm.form.submitButton.submitting
                                             ) : (
                                                 <>
                                                     <SendHorizontal className="w-5 h-5" />
-                                                    {textData.nameCollector.form.submitButton.default}
+                                                    {textData.emailForm.form.submitButton.default}
                                                 </>
                                             )}
                                         </span>
@@ -159,13 +200,9 @@ export default function NameCollector() {
                     <div className="flex flex-row">
                         {/* Left column - Info */}
                         <div className="w-1/2 p-8 flex flex-col justify-center">
-                            <div className="text-left font-extrabold uppercase tracking-wider text-white">
-                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                                    {textData.nameCollector.heading}
-                                </h2>
-                            </div>
-                            <p className="text-gray-300 mt-6 text-left">
-                                {textData.nameCollector.paragraph}
+                            
+                            <p className="text-gray-300 text-left">
+                                Vi i Schlagerpunkarna är glada att höra från dig! Vi älskar att spela och vi är alltid redo att spela på ditt event. Om det är något vi kan göra för att göra ditt event extra speciellt, så är vi redo att göra det. Maila oss gärna om du har några funderingar eller om du vill boka oss till ditt event.
                             </p>
                         </div>
 
@@ -187,6 +224,42 @@ export default function NameCollector() {
                                             onChange={(e) => setName(e.target.value)}
                                             className={`w-full px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
+                                            placeholder="Anders Andersson"
+                                        />
+                                    </div>
+                                    
+                                    <label
+                                        htmlFor="email-desktop"
+                                        className="block mb-4 text-xl text-left font-medium text-white mt-4"
+                                    >
+                                        Email
+                                    </label>
+                                    <div className="relative">
+                                        <input
+                                            type="email"
+                                            id="email-desktop"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            className={`w-full px-4 py-2 ${inputStyles}`}
+                                            disabled={hasSubmitted}
+                                            placeholder="anders@example.com"
+                                        />
+                                    </div>
+                                    
+                                    <label
+                                        htmlFor="message-desktop"
+                                        className="block mb-4 text-xl text-left font-medium text-white mt-4"
+                                    >
+                                        Meddelande
+                                    </label>
+                                    <div className="relative">
+                                        <textarea
+                                            id="message-desktop"
+                                            value={message}
+                                            onChange={(e) => setMessage(e.target.value)}
+                                            className={`w-full px-4 py-4 ${inputStyles}`}
+                                            disabled={hasSubmitted}
+                                            rows={6}
                                         />
                                     </div>
                                 </div>
@@ -194,21 +267,21 @@ export default function NameCollector() {
                                 <div>
                                     <button
                                         type="submit"
-                                        disabled={isSubmitting || hasSubmitted || !name.trim()}
+                                        disabled={isSubmitting || hasSubmitted || !name.trim() || !email.trim() || !message.trim()}
                                         className={`${buttonStyles} ${buttonColorStyles}`}
                                     >
                                         <span className="flex items-center justify-center gap-4">
                                             {isSuccess ? (
                                                 <>
                                                     <CheckCircle className="w-5 h-5" />
-                                                    Tillagt!
+                                                    {textData.emailForm.form.submitButton.success}
                                                 </>
                                             ) : isSubmitting ? (
-                                                "Skickar..."
+                                                textData.emailForm.form.submitButton.submitting
                                             ) : (
                                                 <>
                                                     <SendHorizontal className="w-5 h-5" />
-                                                    Lägg till
+                                                    {textData.emailForm.form.submitButton.default}
                                                 </>
                                             )}
                                         </span>

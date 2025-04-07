@@ -43,14 +43,10 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-start">
         {/* Image container with overlay effect */}
         {isMobile ? (
-          <div className="relative">
-            <div className="overflow-hidden">
+          <div className="relative w-full">
+            <div className="overflow-hidden w-full aspect-square">
               <img
-                className="h-64 w-64 object-cover transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 
-                           sm:h-40 sm:w-40 
-                           md:h-48 md:w-48 
-                           lg:h-56 lg:w-56 
-                           xl:h-64 xl:w-64"
+                className="h-full w-full object-cover object-top transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-105"
                 src={imgSrc}
                 alt={name}
               />
@@ -65,7 +61,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
           >
             <div className="overflow-hidden">
               <img
-                className="h-64 w-64 object-cover transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 
+                className="h-64 w-64 object-cover transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-105 
                            sm:h-40 sm:w-40 
                            md:h-48 md:w-48 
                            lg:h-56 lg:w-56 
@@ -78,10 +74,10 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         )}
 
         {/* Text content */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 ">
           <div>
             {isMobile ? (
-              <h3 className="font-Viga text-xl font-bold text-white sm:text-2xl md:text-3xl transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+              <h3 className="font-Viga text-xl font-bold text-white sm:text-2xl md:text-3xl transition-all duration-500 text-center sm:text-left ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                 {name}
               </h3>
             ) : (
@@ -89,14 +85,14 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="font-Viga text-xl font-bold text-white sm:text-2xl md:text-3xl transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+                className="font-Viga text-xl font-bold text-white text-center sm:text-left sm:text-2xl md:text-3xl transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
               >
                 {name}
               </motion.h3>
             )}
             
             {isMobile ? (
-              <p className="font-Viga text-md text-indigo-400 sm:text-lg md:text-xl py-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+              <p className="text-center sm:text-left font-Viga text-md text-indigo-400 sm:text-lg md:text-xl mt-2 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                 {role}
               </p>
             ) : (
@@ -104,13 +100,13 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="font-Viga text-md text-indigo-400 sm:text-lg md:text-xl py-4 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
+                className="font-Viga text-center sm:text-left text-md text-indigo-400 sm:text-lg md:text-xl mt-2 transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
               >
                 {role}
               </motion.p>
             )}
           </div>
-          <div className="font-Viga text-sm sm:text-base md:text-lg text-gray-300 text-base max-w-3xl transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+          <div className="font-Viga text-sm sm:text-base mt-4 md:text-md text-gray-300 text-base max-w-3xl transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]">
             {isMobile ? (
               <span>{description}</span>
             ) : (

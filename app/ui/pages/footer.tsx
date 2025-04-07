@@ -45,7 +45,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-8 mx-auto text-center md:text-left md:mx-0">
             <h3 className="text-2xl font-semibold border-b border-gray-800 pb-4">Kontakta oss</h3>
-            <p className="text-gray-400">schlagerpunkarna@gmail.com</p>
+            <p className="text-gray-400">{textData.footer.links.email}</p>
             
             {/* Social Media Icons */}
             <div className="flex space-x-8 mt-8 justify-center md:justify-start">
@@ -119,8 +119,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         {/* Logo and Description */}
           <div className="flex flex-col gap-1 items-center text-center mx-auto py-8">
-            <div className="flex items-center space-x-2">
-              <img src="/icons/spLogo.png" alt="Logo" className="mt-2 w-6 h-6 sm:w-8 sm:h-8 mb-4" />
+            <div className="flex items-center ">
+              
               <h2 className="text-2xl sm:text-3xl font-bold">{textData.footer.heading}</h2>
             </div>
             <p className="text-gray-400 max-w-xs">{textData.footer.description}</p>

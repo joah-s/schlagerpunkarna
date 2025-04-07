@@ -92,7 +92,7 @@ export default function Page() {
         <div id="medlemmar">
           <Characters />
         </div>
-        <div id="recensioner" className="hidden md:block">
+        <div id="recensioner">
           <Reviews />
         </div>
       </div>

@@ -1,14 +1,20 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('');
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  
+  // Check if we're on a page that needs a back button
+  const isSubPage = pathname === '/historia' || pathname === '/boka';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,16 +134,22 @@ const Header = () => {
       ${scrolled ? '' : ' bg-black/80 sm:bg-transparent'}
       sm:top-0 sm:bottom-auto bottom-0`}>
       <div className="mx-auto px-4 sm:px-8 lg:px-16 lg:py-4">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex-shrink-0 transition-transform duration-500 ease-in-out hover:scale-110">
-            <a href="/" onClick={handleLogoClick}>
-              <img
-                src="icons/spLogo.png"
-                alt="Logo"
-                className="w-8 h-8 mb-2 object-contain transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-              />
-            </a>
+        <div className="flex justify-between items-center px-2">
+          {/* Logo or Back Button */}
+          <div className="flex-shrink-0 transition-transform duration-500 ease-in-out hover:scale-110 flex items-center">
+            {isSubPage ? (
+              <Link href="/" className="flex items-center text-gray-300 hover:text-white">
+                <ArrowLeft className="w-8 h-8" />
+              </Link>
+            ) : (
+              <a href="/" onClick={handleLogoClick} className="flex items-center">
+                <img
+                  src="icons/spLogo.png"
+                  alt="Logo"
+                  className="w-8 h-8 object-contain transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                />
+              </a>
+            )}
           </div>
 
           {/* Desktop Navigation */}
@@ -159,7 +171,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="sm:block relative" ref={menuRef}>
+          <div className="sm:block relative flex items-center" ref={menuRef}>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] z-50 relative p-2 touch-manipulation"

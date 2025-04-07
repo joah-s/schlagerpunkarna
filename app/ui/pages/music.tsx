@@ -119,7 +119,7 @@ export default function Music() {
             </motion.div>
           )}
           {/* Spotify Button */}
-<div className="flex items-center justify-center md:justify-start mb-16">
+<div className="flex items-center justify-center md:justify-start pt-4">
           <motion.div
             
             className=""
@@ -184,13 +184,13 @@ export default function Music() {
             {/* Scroll Container */}
             <div
               ref={scrollRef}
-              className="overflow-x-auto scrollbar-thin scrollbar-track-gray-800/30 scrollbar-thumb-purple-500/50 hover:scrollbar-thumb-purple-500 pb-4 pt-8 scroll-smooth snap-x snap-mandatory"
+              className="overflow-x-auto scrollbar-thin scrollbar-track-gray-800/30 scrollbar-thumb-purple-500/50 hover:scrollbar-thumb-purple-500 scroll-smooth snap-x snap-mandatory"
             >
-              <div className="inline-flex gap-8 py-4">
+              <div className="inline-flex gap-8">
                 {textData.timeline.discografi
                   .filter((album) => album.clickable)
                   .map((album, i) => (
-                    <div key={i} className="flex-shrink-0 w-60 snap-start">
+                    <div key={i} className="flex-shrink-0 w-64 snap-start">
                       <AlbumCard
                         src={album.imgSrc}
                         title={album.name}

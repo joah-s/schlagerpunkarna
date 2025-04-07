@@ -209,15 +209,68 @@ export const textData = {
         },
       ],
     },
+    historia: {
+        heading: "Historia",
+        subheading: "Lär känna vår historia och resa genom åren.",
+        timeline: {
+            heading: "DISKOGRAFI",
+            paragraph: "Schlagerpunkarnas samlade musikskatt. 20 låtar, minst 20 höjningar.",
+            songsLabel: "Låtar:"
+        }
+    },
+    boka: {
+        heading: "Boka Oss",
+        subheading: "Kontakta oss för att boka Schlagerpunkarna till ditt event",
+        contact: {
+            heading: "Kontakt",
+            social: {
+                facebook: "Facebook",
+                instagram: "Instagram"
+            }
+        }
+    },
     nameCollector: {
       heading: "Namninsamling",
       paragraph: "Schlagerpunkarna borde få vara med i Melodifestivalen 2026. Skriv in ditt namn för att visa att du stöder schlanarkismens budskap.",
+      form: {
+          nameLabel: "Ditt namn",
+          submitButton: {
+              default: "Lägg till",
+              submitting: "Skickar...",
+              success: "Tillagt!"
+          },
+          status: {
+              success: "Tack! Ditt namn har lagts listan! #Mello26",
+              error: "Det gick inte att skicka namnet. Försök igen.",
+              generalError: "Ett fel inträffade. Försök igen senare."
+          }
+      }
+    },
+    emailForm: {
+        heading: "Kontakta Oss",
+        paragraph: "Vi i Schlagerpunkarna är glada att höra från dig! Vi älskar att spela och vi är alltid redo att spela på ditt event. Om det är något vi kan göra för att göra ditt event extra speciellt, så är vi redo att göra det. Maila oss gärna om du har några funderingar eller om du vill boka oss till ditt event.",
+        form: {
+            nameLabel: "Ditt namn",
+            emailLabel: "Din Email",
+            messageLabel: "Meddelande",
+            submitButton: {
+                default: "Skicka",
+                submitting: "Skickar...",
+                success: "Skickat!"
+            },
+            status: {
+                success: "Tack! Ditt meddelande har skickats!",
+                error: "Det gick inte att skicka meddelandet. Försök igen.",
+                generalError: "Ett fel inträffade. Försök igen senare."
+            }
+        }
     },
     footer: {
       heading: "SCHLAGERPUNKARNA",
       description: "Anarkism och tonartshöjningar sedan 2018.",
       paragraph: "",
       links: {
+        email: "schlagerpunkarna@gmail.com",
         facebook: "https://www.facebook.com/yourpage",
         spotify: "https://open.spotify.com/artist/yourartistid",
         youtube: "https://www.youtube.com/channel/yourchannelid",

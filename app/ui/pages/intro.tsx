@@ -140,12 +140,12 @@ export default function Intro() {
         {/* Video for mobile */}
         <div className="block md:hidden mt-8">
           {/* Gradient overlay for mobile video */}
-          <div className="relative rounded-xl shadow-2xl">
-            <div className="absolute inset-0 z-[1] rounded-lg bg-gradient-to-t from-black via-transparent to-black opacity-50"></div>
-            <div className="absolute inset-0 z-[1] rounded-lg bg-gradient-to-r from-black via-transparent to-black opacity-50"></div>
+          <div className="relative  shadow-2xl">
+            <div className="absolute inset-0 z-[1]  bg-gradient-to-t from-black via-transparent to-black opacity-50"></div>
+            <div className="absolute inset-0 z-[1]  bg-gradient-to-r from-black via-transparent to-black opacity-50"></div>
             <video
               src="/SPjump.mp4"
-              className="w-full h-auto rounded-lg"
+              className="w-full h-auto "
               autoPlay={true}
               muted={true}
               loop={true}
