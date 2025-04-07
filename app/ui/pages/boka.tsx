@@ -83,11 +83,11 @@ export default function Boka() {
                 <div className="relative py-16 px-4 max-w-6xl mx-auto">
                     <section className="py-16" ref={inViewRef}>
                         {isMobile ? (
-                            <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white text-center">
+                            <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase text-white text-center">
                                 Boka Oss
                             </h2>
                         ) : (
-                            <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white  text-center">
+                            <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase  text-white  text-center">
                                 {headingWords.map((word, i) => (
                                     <motion.span
                                         key={i}

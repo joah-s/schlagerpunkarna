@@ -18,12 +18,12 @@ export default function Videos() {
       <section className="py-16" ref={inViewRef}>
       {isMobile ? (
             // No animation for mobile
-            <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white">
+            <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase  text-white">
               {textData.timeline.heading}
             </h2>
           ) : (
             // Animated version for larger screens
-            <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white">
+            <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase text-white">
               {headingWords.map((word, i) => (
                 <motion.span
                   key={i}

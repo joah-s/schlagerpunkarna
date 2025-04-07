@@ -42,11 +42,11 @@ export default function Historia() {
         {/* Back Button */}
         <Link 
           href="/" 
-          className="fixed bottom-8 left-8 z-50 bg-black/50 backdrop-blur-sm px-8 py-4 rounded-lg hover:bg-black/70 transition-all duration-300 flex items-center gap-4 group border border-purple-500/30 hover:border-purple-500/50"
+          className="fixed top-4 left-4 sm:top-8 sm:left-4 z-50 bg-black/50 backdrop-blur-sm px-4 py-2  rounded-lg hover:bg-black/70 transition-all duration-300 flex items-center gap-2  group border border-purple-500/30 hover:border-purple-500/50 sm:mt-16"
         >
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="h-6 w-6 text-white group-hover:scale-110 transition-transform duration-300" 
+            className="h-5 w-5 sm:h-6 sm:w-6 text-white group-hover:scale-110 transition-transform duration-300" 
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"
@@ -65,12 +65,12 @@ export default function Historia() {
           <section className="py-16" ref={inViewRef}>
             {isMobile ? (
               // No animation for mobile
-              <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white">
+              <h2 className="flex items-center justify-center  text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white">
                 Historia
               </h2>
             ) : (
               // Animated version for larger screens
-              <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white">
+              <h2 className="flex items-center justify-center  text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white">
                 {headingWords.map((word, i) => (
                   <motion.span
                     key={i}
@@ -88,7 +88,7 @@ export default function Historia() {
             {isMobile ? (
               // No animation for mobile
               <div className="mb-8">
-                <p className="flex items-center justify-center md:justify-start text-center md:text-left text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide">
+                <p className="flex items-center justify-center  text-center  text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga">
                   Lär känna vår historia och resa genom åren.
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function Historia() {
                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                <p className="text-base text-center md:text-left sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide">
+                <p className="text-base text-center  sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide">
                   Lär känna vår historia och resa genom åren.
                 </p>
               </motion.div>

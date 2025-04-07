@@ -72,7 +72,7 @@ export default function Page() {
           onClick={scrollToTop}
           className="text-white bg-gray-800 hover:bg-gray-700 rounded-full shadow-lg drop-shadow-xl p-4 
                     hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 
-                    focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                    focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-900 hidden sm:block"
           aria-label="Scroll to top"
         >
           <svg className="w-6 h-6 transform transition-transform duration-300 hover:-translate-y-1"
@@ -108,7 +108,7 @@ export default function Page() {
         <div id="form">
           <NameCollector />
         </div>
-        
+
         <div id="footer">
           <Footer />
         </div>

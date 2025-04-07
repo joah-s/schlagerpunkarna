@@ -78,12 +78,12 @@ export default function Music() {
         <section className="py-16" ref={inViewRef}>
           {isMobile ? (
             // No animation for mobile
-            <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white">
+            <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white text-center">
               {textData.timeline.heading}
             </h2>
           ) : (
             // Animated version for larger screens
-            <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white">
+            <h2 className="flex items-center justify-center md:justify-start text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white text-center">
               {headingWords.map((word, i) => (
                 <motion.span
                   key={i}
@@ -113,7 +113,7 @@ export default function Music() {
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide items-center justify-center text-center md:text-left md:items-start">
                 {textData.timeline.paragraph}
               </p>
             </motion.div>

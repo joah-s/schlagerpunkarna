@@ -8,7 +8,7 @@ export default function Characters() {
     return (
       <div className="relative px-4 md:px-16 lg:px-16" ref={targetRef}>
         <section className="py-12 md:py-16 lg:py-16 relative z-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold mb-8 md:mb-8 uppercase flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-purple-400 font-Viga text-center">
+          <h2 className="text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-8 md:mb-8 uppercase flex items-center justify-center md:justify-start font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-purple-400 font-Viga text-center">
             {textData.characters.heading}
           </h2>
           <div className="space-y-8 max-w-3xl">

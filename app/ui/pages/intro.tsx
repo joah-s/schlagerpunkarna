@@ -65,14 +65,14 @@ export default function Intro() {
       <section className="py-16 md:py-16 lg:py-16 rounded-lg relative z-10" ref={inViewRef}>
         {isMobile ? (
           // No animation for mobile
-          <h2 className="flex items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white text-center">
+          <h2 className="flex items-center justify-center md:justify-start text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white text-center">
             {textData.intro.heading}
           </h2>
         ) : (
           // Animated version for larger screens
           <motion.h2
             style={{ opacity, scale }}
-            className=" items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-wider text-white"
+            className=" items-center justify-center md:justify-start text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white text-white text-center md:text-left md:items-start"
           >
             {words.map((word, i) => (
               <motion.span
@@ -91,7 +91,7 @@ export default function Intro() {
         {isMobile ? (
           // No animation for mobile
           <div className="space-y-8 max-w-3xl">
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide text-center md:text-left md:items-start">
               {textData.intro.paragraph[0]}
             </p>
             <div className="mt-8 space-y-4">
@@ -113,7 +113,7 @@ export default function Intro() {
             style={{ y, opacity }}
           >
             <motion.p
-              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide text-center md:text-left md:items-start"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
