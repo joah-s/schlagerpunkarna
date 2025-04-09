@@ -85,7 +85,7 @@ export default function EmailForm() {
     const inputStyles = "bg-gray-900/50 focus:ring-1 focus:ring-purple-500 focus:border-transparent transition-colors text-white placeholder-gray-400";
 
     return (
-        <div className="font-Viga relative py-16 max-w-4xl mx-auto flex flex-col items-center justify-center overflow-hidden">
+        <div className="font-Viga relative max-w-4xl mx-auto flex flex-col items-center justify-center overflow-hidden">
             {/* Background */}
             <div className="absolute inset-0 -z-10">
                 <img
@@ -101,10 +101,10 @@ export default function EmailForm() {
                     // Mobile layout (stacked)
                     <div className="flex flex-col">
                         {/* Content */}
-                        <div className="">
+                        <div className="text-center">
                             
-                            <h3 className="text-white mb-8 text-center sm:text-left">
-                                {textData.footer.links.email}
+                            <h3 className="text-white mb-8 text-center">
+                                {textData.footer.sections.contact.email}
                             </h3>
                             
                             <p className="text-gray-300 mb-8 text-center">
@@ -164,9 +164,10 @@ export default function EmailForm() {
                                             id="message-mobile"
                                             value={message}
                                             onChange={(e) => setMessage(e.target.value)}
-                                            className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles}`}
+                                            className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles} resize-y max-h-96`}
                                             disabled={hasSubmitted}
                                             rows={6}
+                                            placeholder="Ditt meddelande här..."
                                         />
                                     </div>
                                 </div>
@@ -201,12 +202,12 @@ export default function EmailForm() {
                     // Desktop layout (side by side)
                     <div className="flex flex-row">
                         {/* Left column - Info */}
-                        <div className="w-1/2  flex flex-col justify-center">
+                        <div className="w-1/2 flex flex-col justify-center text-center md:text-left">
                             
-                            <h3 className="text-white text-2xl mb-8 text-center sm:text-left">
-                                {textData.footer.links.email}
+                            <h3 className="text-white text-2xl mb-8 text-center md:text-left">
+                                {textData.footer.sections.contact.email}
                             </h3>
-                            <p className="text-gray-300 text-left">
+                            <p className="text-gray-300 text-center md:text-left">
                                 Vi i Schlagerpunkarna är glada att höra från dig! Vi älskar att spela och vi är alltid redo att spela på ditt event. Om det är något vi kan göra för att göra ditt event extra speciellt, så är vi redo att göra det. Maila oss gärna om du har några funderingar eller om du vill boka oss till ditt event.
                             </p>
                         </div>
@@ -217,7 +218,7 @@ export default function EmailForm() {
                                 <div>
                                     <label
                                         htmlFor="name-desktop"
-                                        className="block mb-4 text-xl text-left font-medium text-white"
+                                        className="block mb-4 text-xl text-center md:text-left font-medium text-white"
                                     >
                                         Ditt namn 
                                     </label>
@@ -235,7 +236,7 @@ export default function EmailForm() {
                                     
                                     <label
                                         htmlFor="email-desktop"
-                                        className="block mb-4 text-xl text-left font-medium text-white mt-4"
+                                        className="block mb-4 text-xl text-center md:text-left font-medium text-white mt-4"
                                     >
                                         Email
                                     </label>
@@ -253,7 +254,7 @@ export default function EmailForm() {
                                     
                                     <label
                                         htmlFor="message-desktop"
-                                        className="block mb-4 text-xl text-left font-medium text-white mt-4"
+                                        className="block mb-4 text-xl text-center md:text-left font-medium text-white mt-4"
                                     >
                                         Meddelande
                                     </label>
@@ -262,14 +263,15 @@ export default function EmailForm() {
                                             id="message-desktop"
                                             value={message}
                                             onChange={(e) => setMessage(e.target.value)}
-                                            className={`w-full px-4 py-4 ${inputStyles}`}
+                                            className={`w-full px-4 py-4 ${inputStyles} resize-y max-h-96`}
                                             disabled={hasSubmitted}
                                             rows={6}
+                                            placeholder="Ditt meddelande här..."
                                         />
                                     </div>
                                 </div>
 
-                                <div>
+                                <div className="text-center md:text-left">
                                     <button
                                         type="submit"
                                         disabled={isSubmitting || hasSubmitted || !name.trim() || !email.trim() || !message.trim()}

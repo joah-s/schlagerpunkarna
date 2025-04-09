@@ -48,10 +48,13 @@ export default function Land() {
         <video
           src="/backgrounds/SPvid.mp4"
           className="inset-0 w-full h-full object-cover opacity-20"
-          autoPlay={true}
-          muted={true}
-          loop={true}
-          playsInline={true}
+          autoPlay
+          loop
+          muted
+          playsInline
+          disablePictureInPicture
+          disableRemotePlayback
+          aria-label="Schlagerpunkarna live performance background video"
         />
       </div>
 
@@ -77,7 +80,7 @@ export default function Land() {
             <img
               className="mx-auto sm:hidden block h-32 py-4 transform hover:scale-105 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
               src="icons/spLogo.png"
-              alt="Logo"
+              alt="Schlagerpunkarna band logo"
             />
 
             {/* Heading with Chromatic Aberration only on sm screens and above */}
@@ -139,7 +142,9 @@ export default function Land() {
               >
                 <Link
                   href="/boka"
-                  className={`block  px-8 py-2 text-lg font-bold text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:from-purple-700 hover:to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_20px_rgba(168,85,247,0.7)] text-center font-Viga tracking-wider transform hover:-translate-y-1`}
+                  className={`block px-8 py-2 text-lg font-bold text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:from-purple-700 hover:to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_20px_rgba(168,85,247,0.7)] text-center font-Viga tracking-wider transform hover:-translate-y-1`}
+                  role="button"
+                  aria-label="Book Schlagerpunkarna for an event"
                 >
                   Boka Nu!
                 </Link>

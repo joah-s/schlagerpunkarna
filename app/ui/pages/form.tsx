@@ -82,7 +82,7 @@ export default function Form() {
         <img
           src="/backgrounds/formBackground.jpg"
           className="w-full h-full object-cover saturate-0 opacity-20"
-          alt="Background"
+          alt="Schlagerpunkarna live performance"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -115,9 +115,15 @@ export default function Form() {
                 errors.email ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors`}
               placeholder="roger.punkare@hotmail.com"
+              required
+              aria-label="Your email address"
+              aria-invalid={errors.email ? "true" : "false"}
+              aria-describedby={errors.email ? "email-error" : undefined}
             />
             {errors.email && (
-              <p className="mt-2 text-sm text-red-500">{errors.email}</p>
+              <p id="email-error" className="mt-2 text-sm text-red-500" role="alert">
+                {errors.email}
+              </p>
             )}
           </div>
 
@@ -137,9 +143,15 @@ export default function Form() {
               className={`w-full p-4 bg-gray-900/50 border ${
                 errors.title ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors`}
+              required
+              aria-label="Title"
+              aria-invalid={errors.title ? "true" : "false"}
+              aria-describedby={errors.title ? "title-error" : undefined}
             />
             {errors.title && (
-              <p className="mt-2 text-sm text-red-500">{errors.title}</p>
+              <p id="title-error" className="mt-2 text-sm text-red-500" role="alert">
+                {errors.title}
+              </p>
             )}
           </div>
 
@@ -159,9 +171,15 @@ export default function Form() {
               className={`w-full p-4 bg-gray-900/50 border ${
                 errors.message ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none`}
+              required
+              aria-label="Your message"
+              aria-invalid={errors.message ? "true" : "false"}
+              aria-describedby={errors.message ? "message-error" : undefined}
             />
             {errors.message && (
-              <p className="mt-2 text-sm text-red-500">{errors.message}</p>
+              <p id="message-error" className="mt-2 text-sm text-red-500" role="alert">
+                {errors.message}
+              </p>
             )}
           </div>
 
@@ -175,6 +193,7 @@ export default function Form() {
               } 
               disabled:opacity-50 disabled:cursor-not-allowed
               hover:scale-[1.02] active:scale-[0.98]`}
+            aria-label="Submit booking request"
           >
             <span className="flex items-center justify-center gap-4">
               {isSuccess ? (

@@ -81,14 +81,14 @@ export default function Boka() {
             <div className="relative min-h-screen bg-gradient-to-b from-purple-900 to-black">
 
 
-                <div className="relative py-16 px-4 max-w-6xl mx-auto">
+                <div className="relative py-16 px-4 max-w-6xl mx-auto ">
                     <section className="py-16" ref={inViewRef}>
                         {isMobile ? (
                             <h2 className="flex items-center justify-center text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white">
                                 {textData.boka.heading}
-                                
+
                             </h2>
-                            
+
                         ) : (
                             <h2 className="flex items-center justify-center text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white">
                                 {headingWords.map((word, i) => (
@@ -106,14 +106,14 @@ export default function Boka() {
                         )}
 
                         {isMobile ? (
-                            <div className="mb-8">
+                            <div className="">
                                 <p className="flex items-center justify-center text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga">
                                     {textData.boka.subheading}
                                 </p>
                             </div>
                         ) : (
                             <motion.div
-                                className="mb-8"
+                                className=""
                                 initial={{ opacity: 0 }}
                                 animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -124,14 +124,9 @@ export default function Boka() {
                             </motion.div>
                         )}
                     </section>
-
                     {/* Contact Methods Section */}
                     <EmailForm />
-                    <div className="flex flex-col gap-8 max-w-2xl mx-auto">
-                        
-                    </div>
                 </div>
-
             </div>
             <Reviews />
             <Footer />

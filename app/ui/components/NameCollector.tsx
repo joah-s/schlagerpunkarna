@@ -97,11 +97,11 @@ export default function NameCollector() {
                     // Mobile layout (stacked)
                     <div className="flex flex-col">
                         {/* Header */}
-                        <div className="text-center font-extrabold uppercase tracking-wider text-white">
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                        <div className="text-center    text-white">
+                            <h2 className="text-3xl md:text-4xl uppercase  lg:text-5xl font-bold text-white">
                                 {textData.nameCollector.heading}
                             </h2>
-                            <p className="text-gray-300 mb-8 text-center">
+                            <p className="text-gray-300 mb-8 text-center mt-4 text-left px-4 max-w-md mx-auto">
                                 {textData.nameCollector.paragraph}
                             </p>
                         </div>

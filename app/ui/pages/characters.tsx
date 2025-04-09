@@ -32,7 +32,10 @@ export default function Characters() {
           ))}
         </div>
 
-        <img className="absolute -z-10 inset-0 w-full h-full object-cover opacity-100 mix-blend-color-burn" src="/icons/spAnarkist.png" alt="Background Image" />
+        <img className="absolute -z-10 inset-0 w-full h-full object-cover opacity-100 mix-blend-color-burn" 
+          src="/backgrounds/reviewBackground.jpg" 
+          alt="Schlagerpunkarna playing live" 
+        />
       </div>
     );
   }

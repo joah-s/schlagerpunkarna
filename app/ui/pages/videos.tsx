@@ -49,6 +49,7 @@ export default function Videos() {
             href="https://www.youtube.com/@schlagerpunkarna" 
             target="_blank" 
             rel="noopener noreferrer"
+            title="Visit Schlagerpunkarna's YouTube channel"
             className="flex items-center gap-2 px-8 py-2 text-lg font-bold text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:from-purple-700 hover:to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_20px_rgba(168,85,247,0.7)] text-center font-Viga tracking-wider transform hover:-translate-y-1"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

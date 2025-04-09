@@ -56,8 +56,11 @@ export default function Intro() {
             autoPlay
             loop
             muted
+            playsInline
+            disablePictureInPicture
+            disableRemotePlayback
             src="/SPjump.mp4"
-            playsInline={true}
+            aria-label="Schlagerpunkarna live performance video"
           />
         </div>
       </div>
@@ -140,15 +143,18 @@ export default function Intro() {
         {/* Video for mobile */}
         <div className="block md:hidden mt-8">
           {/* Gradient overlay for mobile video */}
-          <div className="relative  shadow-2xl">
-            <div className="absolute inset-0 z-[1]  bg-gradient-to-t from-black via-transparent to-black opacity-50"></div>
-            <div className="absolute inset-0 z-[1]  bg-gradient-to-r from-black via-transparent to-black opacity-50"></div>
+          <div className="relative shadow-2xl">
+            <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black via-transparent to-black opacity-50"></div>
+            <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black via-transparent to-black opacity-50"></div>
             <video
               src="/SPjump.mp4"
-              className="w-full h-auto "
-              autoPlay={true}
-              muted={true}
-              loop={true}
+              className="w-full h-auto"
+              autoPlay
+              loop
+              muted
+              playsInline
+              disablePictureInPicture
+              disableRemotePlayback
             />
           </div>
         </div>
@@ -164,7 +170,9 @@ export default function Intro() {
           >
             <Link
               href="/historia"
-              className={`block  px-8 py-2 text-lg font-bold text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:from-purple-700 hover:to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_20px_rgba(168,85,247,0.7)] text-center font-Viga tracking-wider transform hover:-translate-y-1`}
+              className={`block px-8 py-2 text-lg font-bold text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:from-purple-700 hover:to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_20px_rgba(168,85,247,0.7)] text-center font-Viga tracking-wider transform hover:-translate-y-1`}
+              role="button"
+              aria-label="Navigate to band history page"
             >
               Historia
             </Link>
