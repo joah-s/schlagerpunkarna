@@ -84,7 +84,7 @@ export default function Land() {
               id="tsparticlesfullpage"
               background="transparent"
               minSize={0.2}
-              maxSize={3.4}
+              maxSize={1.4}
               particleDensity={20}
               className="w-full h-full"
               particleColor="#FFFFFF"
