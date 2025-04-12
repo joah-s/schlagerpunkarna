@@ -169,10 +169,10 @@ export default function Intro() {
             className=""
           >
             <Link
-              href="/historia"
+              href="/timeline"
               className={`block px-8 py-2 text-lg font-bold text-white bg-gradient-to-r from-purple-800 to-purple-600 hover:from-purple-700 hover:to-purple-500 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_20px_rgba(168,85,247,0.7)] text-center font-Viga tracking-wider transform hover:-translate-y-1`}
               role="button"
-              aria-label="Navigate to band history page"
+              aria-label="Navigate to band timeline page"
             >
               Historia
             </Link>

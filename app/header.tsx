@@ -14,7 +14,7 @@ const Header = () => {
   const pathname = usePathname();
   
   // Check if we're on a page that needs a back button
-  const isSubPage = pathname === '/historia' || pathname === '/boka';
+  const isSubPage = pathname === '/timeline' || pathname === '/book';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,11 +22,11 @@ const Header = () => {
       setScrolled(isScrolled);
 
       // Determine which section is currently in view
-      const sections = ['omoss', 'diskografi', 'kontakt'];
+      const sections = ['about', 'discography', 'contact'];
       
-      // Check if we're above the "omoss" section
-      const omossElement = document.getElementById('omoss');
-      if (omossElement && omossElement.getBoundingClientRect().top > window.innerHeight / 2) {
+      // Check if we're above the "about" section
+      const aboutElement = document.getElementById('about');
+      if (aboutElement && aboutElement.getBoundingClientRect().top > window.innerHeight / 2) {
         setActiveSection('');
         return;
       }
@@ -79,9 +79,9 @@ const Header = () => {
     if (targetElement) {
       // Apply different offsets based on section
       let offset = 0;
-      if (targetId === 'omoss') offset = -100;
-      if (targetId === 'medlemmar') offset = -50;
-      if (targetId === 'filmer') offset = -50;
+      if (targetId === 'about') offset = -100;
+      if (targetId === 'members') offset = -50;
+      if (targetId === 'videos') offset = -50;
       
       const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset + offset;
       
@@ -111,22 +111,21 @@ const Header = () => {
   };
 
   const navLinks = [
-    { name: 'Om oss', href: '#omoss', id: 'omoss' },
-    { name: 'Diskografi', href: '#diskografi', id: 'diskografi' },
-    { name: 'Kontakt', href: '#kontakt', id: 'kontakt' }
+    { name: 'Om oss', href: '#about', id: 'about' },
+    { name: 'Diskografi', href: '#discography', id: 'discography' },
+    { name: 'Kontakt', href: '#contact', id: 'contact' }
   ];
 
   const subNavLinks = [
-    // Om oss section
-    { name: 'Intro', href: '#omoss', parent: 'omoss' },
-    { name: 'Medlemmar', href: '#medlemmar', parent: 'omoss' },
-    { name: 'Recensioner', href: '#recensioner', parent: 'omoss' },
-    // Diskografi section
-    { name: 'Musik', href: '#musik', parent: 'diskografi' },
-    { name: 'Filmer', href: '#filmer', parent: 'diskografi' },
-    // Kontakt section
-    { name: 'Form', href: '#form', parent: 'kontakt' },
-    { name: 'Kontakt', href: '#footer', parent: 'kontakt' }
+    // About section
+    { name: 'Medlemmar', href: '#members', parent: 'about' },
+    { name: 'Recensioner', href: '#reviews', parent: 'about' },
+    // Discography section
+    { name: 'Musik', href: '#music', parent: 'discography' },
+    { name: 'Filmer', href: '#videos', parent: 'discography' },
+    // Contact section
+    { name: 'Namninsamling', href: '#petition', parent: 'contact' },
+    { name: 'Kontakt', href: '#footer', parent: 'contact' }
   ];
 
   return (
@@ -159,12 +158,9 @@ const Header = () => {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="hover:scale-105 text-sm py-2 w-32 text-center rounded-2xl text-lg text-gray-300 hover:text-white transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col items-center"
+                  className={`hover:scale-105 text-sm md:text-lg py-2 w-32 text-center rounded-2xl text-lg transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${activeSection === link.id ? 'text-yellow-400' : 'text-gray-300 hover:text-white'}`}
                 >
                   {link.name}
-                  <div 
-                    className={`h-2 w-2 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] mt-2 ${activeSection === link.id ? 'bg-yellow-400 scale-125' : 'bg-white'}`}
-                  ></div>
                 </a>
               </div>
             ))}
@@ -212,11 +208,8 @@ const Header = () => {
                         <a
                           href={link.href}
                           onClick={(e) => handleNavClick(e, link.href)}
-                          className="flex items-center text-2xl sm:text-xl font-bold text-gray-200 hover:text-white transition-colors duration-200 py-2 px-4 "
+                          className={`flex items-center text-2xl sm:text-xl font-bold transition-colors duration-200 py-2 px-4 ${activeSection === link.id ? 'text-yellow-400' : 'text-gray-200 hover:text-white'}`}
                         >
-                          <div 
-                            className={`h-3 w-3 mr-3 ${activeSection === link.id ? 'bg-yellow-400' : 'bg-gray-600'}`}
-                          ></div>
                           {link.name}
                         </a>
                         
@@ -241,7 +234,6 @@ const Header = () => {
                                   onClick={(e) => handleNavClick(e, subLink.href)}
                                   className="flex items-center text-xl sm:text-sm text-gray-400 hover:text-white transition-colors duration-200 py-1 px-4"
                                 >
-                                  <div className="h-2 w-2 mr-2 bg-gray-500"></div>
                                   {subLink.name}
                                 </a>
                               </motion.div>

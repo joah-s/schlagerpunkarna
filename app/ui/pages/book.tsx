@@ -9,7 +9,8 @@ import { motion, useInView } from 'framer-motion';
 import EmailForm from '../components/EmailForm';
 import { textData } from "@/app/lib/textData";
 import Reviews from './reviews';
-export default function Boka() {
+
+export default function Book() {
     const inViewRef = useRef(null);
     const isInView = useInView(inViewRef, { once: true, amount: 0.3 });
     const [isMobile, setIsMobile] = useState(false);

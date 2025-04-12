@@ -1,19 +1,48 @@
 'use client';
 
-import Land from '@/app/ui/pages/land'
-import Intro from '@/app/ui/pages/intro'
-import Characters from '@/app/ui/pages/characters'
-import Music from '@/app/ui/pages/music'
-import Reviews from '@/app/ui/pages/reviews'
-import Videos from '@/app/ui/pages/videos'
-import Form from '@/app/ui/pages/form'
-import Footer from '@/app/ui/pages/footer'
-import Header from './header'
+import dynamic from 'next/dynamic';
 import { motion, useSpring } from 'framer-motion';
 import Head from "next/head";
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
-import NameCollector from './ui/components/NameCollector';
+import Header from './header';
+
+// Lazy load components
+const Land = dynamic(() => import('@/app/ui/pages/land'), {
+  loading: () => <div className="w-full h-screen bg-black animate-pulse" />
+});
+
+const Intro = dynamic(() => import('@/app/ui/pages/intro'), {
+  loading: () => <div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />
+});
+
+const Characters = dynamic(() => import('@/app/ui/pages/characters'), {
+  loading: () => <div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />
+});
+
+const Music = dynamic(() => import('@/app/ui/pages/music'), {
+  loading: () => <div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />
+});
+
+const Reviews = dynamic(() => import('@/app/ui/pages/reviews'), {
+  loading: () => <div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />
+});
+
+const Videos = dynamic(() => import('@/app/ui/pages/videos'), {
+  loading: () => <div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />
+});
+
+const Form = dynamic(() => import('@/app/ui/pages/form'), {
+  loading: () => <div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />
+});
+
+const Footer = dynamic(() => import('@/app/ui/pages/footer'), {
+  loading: () => <div className="w-full min-h-[20vh] bg-black animate-pulse" />
+});
+
+const NameCollector = dynamic(() => import('./ui/components/NameCollector'), {
+  loading: () => <div className="w-full min-h-[30vh] bg-gray-900 animate-pulse" />
+});
 
 function scrollToElement(id: string) {
   const element = document.getElementById(id);
@@ -83,34 +112,50 @@ export default function Page() {
         </button>
       </motion.div>
       <div id="land">
-        <Land />
+        <Suspense fallback={<div className="w-full h-screen bg-black animate-pulse" />}>
+          <Land />
+        </Suspense>
       </div>
-      <div id="omoss">
+      <div id="about">
         <div id="intro">
-          <Intro />
+          <Suspense fallback={<div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />}>
+            <Intro />
+          </Suspense>
         </div>
-        <div id="medlemmar">
-          <Characters />
+        <div id="members">
+          <Suspense fallback={<div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />}>
+            <Characters />
+          </Suspense>
         </div>
-        <div id="recensioner">
-          <Reviews />
-        </div>
-      </div>
-      <div id="diskografi">
-        <div id="musik">
-          <Music />
-        </div>
-        <div id="filmer">
-          <Videos />
+        <div id="reviews">
+          <Suspense fallback={<div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />}>
+            <Reviews />
+          </Suspense>
         </div>
       </div>
-      <div id="kontakt">
-        <div id="form">
-          <NameCollector />
+      <div id="discography">
+        <div id="music">
+          <Suspense fallback={<div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />}>
+            <Music />
+          </Suspense>
+        </div>
+        <div id="videos">
+          <Suspense fallback={<div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />}>
+            <Videos />
+          </Suspense>
+        </div>
+      </div>
+      <div id="contact">
+        <div id="petition">
+          <Suspense fallback={<div className="w-full min-h-[30vh] bg-gray-900 animate-pulse" />}>
+            <NameCollector />
+          </Suspense>
         </div>
 
         <div id="footer">
-          <Footer />
+          <Suspense fallback={<div className="w-full min-h-[20vh] bg-black animate-pulse" />}>
+            <Footer />
+          </Suspense>
         </div>
       </div>
     </main>

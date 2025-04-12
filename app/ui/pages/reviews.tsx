@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { textData } from "@/app/lib/textData";
 import ReviewCard from './ReviewCard';
 import { motion, useScroll } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Reviews() {
   const containerRef = useRef(null);
@@ -11,10 +12,14 @@ export default function Reviews() {
   return (
     <div className="bg-gradient-to-b from-black to-gray-800 flex flex-col items-center justify-center relative overflow-hidden antialiased min-h-screen">
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <img
-          src="@/public/backgrounds/reviewBackground.jpg"
-          className="w-full h-full object-cover saturate-0 opacity-20"
+        <Image
+          src="/backgrounds/reviewBackground.jpg"
           alt="Schlagerpunkarna playing live"
+          fill
+          priority
+          quality={75}
+          className="object-cover saturate-0 opacity-20"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 

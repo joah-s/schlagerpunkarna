@@ -1,0 +1,157 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import { textData } from "@/app/lib/textData";
+import AlbumCard from './AlbumCard';
+import Link from 'next/link';
+import SubpageLayout from '../layouts/SubpageLayout';
+
+export default function Timeline() {
+  const [isMobile, setIsMobile] = useState(false);
+  const inViewRef = useRef(null);
+  const isInView = useInView(inViewRef, { once: false, amount: 0.3 });
+  
+  // Split the heading into words for animation
+  const headingWords = "Historia".split(' ');
+
+  useEffect(() => {
+    // Check if window is available (client-side)
+    if (typeof window !== 'undefined') {
+      // Set initial state
+      setIsMobile(window.innerWidth < 640);
+
+      // Add resize listener
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 640);
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      // Clean up
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  return (
+    <SubpageLayout>
+      <div className="relative py-16">
+        <section className="py-16" ref={inViewRef}>
+          {isMobile ? (
+            <h2 className="flex items-center justify-center text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white">
+              {textData.historia.heading}
+            </h2>
+          ) : (
+            <h2 className="flex items-center justify-center text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold font-Viga tracking-tight mb-4 sm:mb-6 md:mb-8 uppercase tracking-tight text-white">
+              {headingWords.map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="inline-block mr-4"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </h2>
+          )}
+
+          {isMobile ? (
+            <div className="mb-8">
+              <p className="flex items-center justify-center text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga">
+                {textData.historia.subheading}
+              </p>
+            </div>
+          ) : (
+            <motion.div
+              className="mb-8"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <p className="text-base text-center sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-200 font-semibold font-Viga tracking-wide">
+                {textData.historia.subheading}
+              </p>
+            </motion.div>
+          )}
+        </section>
+
+        {/* Timeline Section */}
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-purple-500/30 to-purple-500/10"></div>
+
+          {/* Timeline Items */}
+          <div className="space-y-24">
+            {textData.timeline.discografi.map((album, index) => (
+              <div
+                key={index}
+                className="relative group flex justify-center"
+              >
+                {/* Timeline Dot and Year */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 pb-12">
+                  <div className="w-4 h-4 bg-purple-500 group-hover:scale-125 transition-transform duration-300 relative mb-2">
+                    <div className="absolute inset-0 bg-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm "></div>
+                  </div>
+                  <div className="text-white font-Viga text-2xl font-bold text-center">
+                    {album.year}
+                  </div>
+                </div>
+
+                {/* Connecting Lines */}
+                {index < textData.timeline.discografi.length - 1 && (
+                  <div className="absolute left-1/2 transform -translate-x-1/2 h-24 w-1 bg-gradient-to-b from-purple-500/30 to-purple-500/10 -bottom-24 z-0"></div>
+                )}
+
+                {/* Content Container */}
+                <div className="relative max-w-4xl w-full mt-8">
+                  <div className="flex flex-col md:flex-row gap-0">
+                    {/* Album Info */}
+                    <div className="bg-black/50 backdrop-blur-sm p-8 shadow-xl flex-1 hover:bg-black/60 transition-colors duration-300">
+                      <div className="flex flex-col md:flex-row items-center gap-8">
+                        <div className="w-48 h-48 flex-shrink-0 group">
+                          <img
+                            src={album.imgSrc}
+                            alt={album.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold text-white mb-4 font-Viga group-hover:text-purple-400 transition-colors duration-300 text-center sm:text-left">{album.name}</h3>
+                          
+                          <p className="text-gray-300 font-Viga">{album.description}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Songs List */}
+                    {album.songs && album.songs.length > 0 && (
+                      <div className="hidden md:block bg-black/50 backdrop-blur-sm p-8 shadow-xl w-full md:w-80 flex-shrink-0 hover:bg-black/60 transition-colors duration-300">
+                        <h4 className="text-xl font-semibold text-white mb-4 font-Viga group-hover:text-purple-400 transition-colors duration-300">
+                          {textData.historia.timeline.songsLabel}
+                        </h4>
+                        <ul className="space-y-2">
+                          {album.songs.map((song, songIndex) => (
+                            <li 
+                              key={songIndex} 
+                              className="text-gray-300 flex justify-between items-center font-Viga hover:text-white transition-colors duration-300"
+                            >
+                              <span className="text-purple-400 mr-4">{song.number}.</span>
+                              <span className="flex-1">{song.title}</span>
+                              <span className="text-gray-400 text-sm">{song.length}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SubpageLayout>
+  );
+} 

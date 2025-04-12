@@ -2,12 +2,34 @@
 import { textData } from "@/app/lib/textData";
 import React from 'react';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Footer = () => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isSubPage = pathname === '/timeline' || pathname === '/book';
+
   // Function to handle smooth scrolling
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     
+    // Check if the href is for a subpage
+    if (href === '#timeline' || href === '#book') {
+      const pageName = href.replace('#', '');
+      router.push(`/${pageName}`);
+      return;
+    }
+    
+    // If we're on a subpage and want to go to the main page with an anchor
+    if (isSubPage) {
+      // Navigate to main page with anchor
+      router.push(`/${href}`);
+      return;
+    }
+    
+    // Handle smooth scrolling on main page
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
     
@@ -20,26 +42,26 @@ const Footer = () => {
   };
 
   const navLinks = [
-    { name: 'Intro', href: '#omoss', id: 'intro' },
-    { name: 'Boka oss', href: '#boka', id: 'boka' },
-    { name: 'Medlemmar', href: '#medlemmar', id: 'medlemmar' },
-    { name: 'Historia', href: '#historia', id: 'historia' },
-    { name: 'Recensioner', href: '#recensioner', id: 'recensioner' },
-    { name: 'Musik', href: '#musik', id: 'musik' },
-    { name: 'Filmer', href: '#filmer', id: 'filmer' },
-    { name: 'Form', href: '#form', id: 'form' }
+    { name: 'Intro', href: '#about', id: 'about' },
+    { name: 'Boka oss', href: '#book', id: 'book' },
+    { name: 'Medlemmar', href: '#members', id: 'members' },
+    { name: 'Historia', href: '#timeline', id: 'timeline' },
+    { name: 'Recensioner', href: '#reviews', id: 'reviews' },
+    { name: 'Musik', href: '#music', id: 'music' },
+    { name: 'Filmer', href: '#videos', id: 'videos' },
+    { name: 'Namninsamling', href: '#petition', id: 'petition' }
   ];
 
   const subNavLinks = [
-    // Om oss section
-    { name: 'Intro', href: '#omoss', parent: 'omoss' },
-    { name: 'Medlemmar', href: '#medlemmar', parent: 'omoss' },
-    { name: 'Recensioner', href: '#recensioner', parent: 'omoss' },
-    // Diskografi section
-    { name: 'Musik', href: '#musik', parent: 'diskografi' },
-    { name: 'Filmer', href: '#filmer', parent: 'diskografi' },
-    // Kontakt section
-    { name: 'Form', href: '#form', parent: 'kontakt' }
+    // About section
+    { name: 'Intro', href: '#about', parent: 'about' },
+    { name: 'Medlemmar', href: '#members', parent: 'about' },
+    { name: 'Recensioner', href: '#reviews', parent: 'about' },
+    // Discography section
+    { name: 'Musik', href: '#music', parent: 'discography' },
+    { name: 'Filmer', href: '#videos', parent: 'discography' },
+    // Contact section
+    { name: 'Namninsamling', href: '#petition', parent: 'contact' }
   ];
 
   return (
@@ -125,13 +147,40 @@ const Footer = () => {
             <div className="mt-4 grid grid-cols-2 gap-x-4">
               {navLinks.map((link) => (
                 <div key={link.id} className="mb-2">
-                  <a 
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {isSubPage ? (
+                    link.href === '#timeline' || link.href === '#book' ? (
+                      <Link 
+                        href={`/${link.href.replace('#', '')}`}
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <Link 
+                        href={`/${link.href}`}
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  ) : (
+                    link.href === '#timeline' || link.href === '#book' ? (
+                      <Link 
+                        href={`/${link.href.replace('#', '')}`}
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a 
+                        href={link.href}
+                        onClick={(e) => handleNavClick(e, link.href)}
+                        className="text-gray-400 hover:text-white transition-colors"
+                      >
+                        {link.name}
+                      </a>
+                    )
+                  )}
                 </div>
               ))}
             </div>
