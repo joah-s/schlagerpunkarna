@@ -77,7 +77,7 @@ export default function Book() {
     const buttonColorStyles = "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 font-Viga";
 
     return (
-        <main className="relative text-white">
+        <main id="main-content" tabIndex={-1} className="relative text-white scroll-mt-24">
             <Header />
             <div className="relative min-h-screen bg-gradient-to-b from-purple-900 to-black">
 

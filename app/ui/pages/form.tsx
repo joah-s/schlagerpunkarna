@@ -82,7 +82,8 @@ export default function Form() {
         <img
           src="/backgrounds/formBackground.jpg"
           className="w-full h-full object-cover saturate-0 opacity-20"
-          alt="Schlagerpunkarna live performance"
+          alt=""
+          aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -109,6 +110,8 @@ export default function Form() {
               type="email"
               id="email"
               name="email"
+              autoComplete="email"
+              inputMode="email"
               value={formData.email}
               onChange={handleChange}
               className={`w-full p-4 bg-gray-900/50 border ${
@@ -116,7 +119,6 @@ export default function Form() {
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors`}
               placeholder="roger.punkare@hotmail.com"
               required
-              aria-label="Your email address"
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error" : undefined}
             />
@@ -144,7 +146,6 @@ export default function Form() {
                 errors.title ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors`}
               required
-              aria-label="Title"
               aria-invalid={errors.title ? "true" : "false"}
               aria-describedby={errors.title ? "title-error" : undefined}
             />
@@ -172,7 +173,6 @@ export default function Form() {
                 errors.message ? 'border-red-500' : 'border-gray-600'
               } rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-colors resize-none`}
               required
-              aria-label="Your message"
               aria-invalid={errors.message ? "true" : "false"}
               aria-describedby={errors.message ? "message-error" : undefined}
             />

@@ -20,7 +20,7 @@ interface SubpageLayoutProps {
 
 export default function SubpageLayout({ children, showNameCollector = true }: SubpageLayoutProps) {
   return (
-    <main className="relative text-white">
+    <main id="main-content" tabIndex={-1} className="relative text-white scroll-mt-24">
       <Header />
       <div className="relative px-4 md:px-16 lg:px-16 min-h-screen bg-gradient-to-t from-black to-purple-900">
         <Suspense fallback={<div className="w-full min-h-[50vh] bg-gray-900 animate-pulse" />}>

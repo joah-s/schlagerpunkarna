@@ -80,6 +80,7 @@ const Footer = () => {
                 href={textData.footer.sections.contact.social.facebook.url} 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
                 className="text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -96,6 +97,7 @@ const Footer = () => {
                 href={textData.footer.sections.contact.social.spotify.url} 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Spotify"
                 className="text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -112,6 +114,7 @@ const Footer = () => {
                 href={textData.footer.sections.contact.social.youtube.url} 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="YouTube"
                 className="text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -128,6 +131,7 @@ const Footer = () => {
                 href={textData.footer.sections.contact.social.instagram.url} 
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}

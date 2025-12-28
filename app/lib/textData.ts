@@ -51,7 +51,7 @@ export const textData = {
     },
     "timeline": {
     "heading": "DISKOGRAFI",
-    "paragraph": "Schlagerpunkarnas samlade musikskatt. 20 låtar, minst 20 höjningar.",
+    "paragraph": "Schlagerpunkarnas samlade musikskatt. 24 låtar, minst 24 höjningar.",
     "discografi": [
       {
         "name": "Schlanarkismen föds",
@@ -67,10 +67,10 @@ export const textData = {
         "description": "Schlagerpunkarnas första volym spelas in i Studio Sunk och tillgängliggörs för allmänheten. Blir en \"över-natten-succé\".",
         "link":"https://open.spotify.com/album/6t608ghC7CqqUJYih2DrjM?si=ssJITkczRASioDX6dC00bg",
         "songs": [
-          {"number": 1, "title": "Gorom eld Svarten", "length": "3:48"},
-          {"number": 2, "title": "Jag buger så bra", "length": "3:42"},
-          {"number": 3, "title": "Nånting är fel", "length": "4:02"},
-          {"number": 4, "title": "La dolce vita", "length": "2:23"},
+          {"number": 1, "title": "Genom eld & vatten", "length": "3:58"},
+          {"number": 2, "title": "Jag ljuger så bra", "length": "3:42"},
+          {"number": 3, "title": "När vindarna viskar mitt namn", "length": "3:23"},
+          {"number": 4, "title": "La dolce vita", "length": "3:45"},
           {"number": 5, "title": "Evighet", "length": "3:36"}
         ],
         "clickable": true
@@ -82,10 +82,11 @@ export const textData = {
         "description": "Efter att allmänheten bönat och bett efter mer schlanarkism, släpper Schlagerpunkarna den efterlängtade uppföljaren till den första volymen. Råare och nyare än den första.",
         "link":"https://open.spotify.com/album/02uPMZPKU1TZzYanu9g52r?si=qAiPDROvQ52JH8vE-OHieg",
         "songs": [
-          {"number": 1, "title": "Hej Sofia", "length": "2:55"},
-          {"number": 2, "title": "Manboy", "length": "2:46"},
-          {"number": 3, "title": "Alla fickor", "length": "2:22"},
-          {"number": 4, "title": "(Du är så) Yeah Yeah Wowow", "length": "2:48"}
+          {"number": 1, "title": "Eloise", "length": "2:59"},
+          {"number": 2, "title": "Hej Sofia", "length": "2:46"},
+          {"number": 3, "title": "Manboy", "length": "3:52"},
+          {"number": 4, "title": "Alla fickor", "length": "3:42"},
+          {"number": 5, "title": "(Du är så) Yeah Yeah Wow wow", "length": "3:26"}
         ],
         "clickable": true
       },
@@ -96,11 +97,11 @@ export const textData = {
         "description": "Efter att ha låtit schlanarkisterna sukta efter mer ett längre tag släpps den tredje volymen samtidigt som Lundakarnevalen 2022 inträffar. Till karnevalisternas stora glädje.",
         "link":"https://open.spotify.com/album/7iIsygKVwZeFmJgV4mvxzh?si=rw8xwKngQ2S-ktp-6CEHfQ",
         "songs": [
-          {"number": 1, "title": "Fingad är en storrvind", "length": "3:42"},
-          {"number": 2, "title": "2 Carame", "length": "3:00"},
-          {"number": 3, "title": "Sun", "length": "2:28"},
-          {"number": 4, "title": "Stay The Night", "length": "2:58"},
-          {"number": 5, "title": "Michelangelo (7”)", "length": "2:18"}
+          {"number": 1, "title": "Fångad av en stormvind", "length": "3:13"},
+          {"number": 2, "title": "Cara mia", "length": "3:51"},
+          {"number": 3, "title": "Diggiloo diggiley", "length": "2:58"},
+          {"number": 4, "title": "Stay The Night", "length": "3:03"},
+          {"number": 5, "title": "Michelangelo (Men så svara då!)", "length": "3:44"}
         ],
         "clickable": true
       },
@@ -145,8 +146,16 @@ export const textData = {
       {
         "name": "Vol. 5",
         "year": "2025",
-        "imgSrc": "shows/future.png",
-        "description": "To be announced. Vad 2025 innebär för Schlagerpunkarna återstår att se. Håll ögon (och öron) öppna.",
+        "imgSrc": "albums/pic-album5.png",
+        "description": "Volym fem är här. Håll ögon (och öron) öppna för mer schlanarkism.",
+        "link":"https://open.spotify.com/album/6h2NU9udH9S7BMnrLdYhug?si=_I9Igwh2Q-eocxDd28ZWOQ",
+        "songs": [
+          {"number": 1, "title": "En riktig jävla schlager", "length": "3:13"},
+          {"number": 2, "title": "Amanda", "length": "3:08"},
+          {"number": 3, "title": "Dansa i neon", "length": "3:41"},
+          {"number": 4, "title": "Underbart", "length": "3:48"},
+          {"number": 5, "title": "Värsta schlagern", "length": "3:41"}
+        ],
         "clickable": true
       },
       {
@@ -214,7 +223,7 @@ export const textData = {
         subheading: "Lär känna vår historia och resa genom åren.",
         timeline: {
             heading: "DISKOGRAFI",
-            paragraph: "Schlagerpunkarnas samlade musikskatt. 20 låtar, minst 20 höjningar.",
+            paragraph: "Schlagerpunkarnas samlade musikskatt. 24 låtar, minst 24 höjningar.",
             songsLabel: "Låtar:"
         }
     },

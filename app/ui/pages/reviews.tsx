@@ -14,7 +14,8 @@ export default function Reviews() {
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <Image
           src="/backgrounds/reviewBackground.jpg"
-          alt="Schlagerpunkarna playing live"
+          alt=""
+          aria-hidden="true"
           fill
           priority
           quality={75}

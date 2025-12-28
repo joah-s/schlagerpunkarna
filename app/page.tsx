@@ -86,7 +86,7 @@ export default function Page() {
   };
 
   return (
-    <main className="relative text-white">
+    <main id="main-content" tabIndex={-1} className="relative text-white scroll-mt-24">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet" />

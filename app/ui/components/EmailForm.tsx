@@ -91,7 +91,8 @@ export default function EmailForm() {
                 <img
                     src="/backgrounds/formBackground.jpg"
                     className="w-full h-full object-cover saturate-0 opacity-20"
-                    alt="Background"
+                    alt=""
+                    aria-hidden="true"
                 />
                 <div className="absolute inset-0 bg-black/30" />
             </div>
@@ -123,11 +124,14 @@ export default function EmailForm() {
                                         <input
                                             type="text"
                                             id="name-mobile"
+                                            name="name"
+                                            autoComplete="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
                                             placeholder="Anders Andersson"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -143,11 +147,15 @@ export default function EmailForm() {
                                         <input
                                             type="email"
                                             id="email-mobile"
+                                            name="email"
+                                            autoComplete="email"
+                                            inputMode="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
                                             placeholder="anders@example.com"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -162,12 +170,14 @@ export default function EmailForm() {
                                     <div className="relative flex justify-center">
                                         <textarea
                                             id="message-mobile"
+                                            name="message"
                                             value={message}
                                             onChange={(e) => setMessage(e.target.value)}
                                             className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles} resize-y max-h-96`}
                                             disabled={hasSubmitted}
                                             rows={6}
                                             placeholder="Ditt meddelande här..."
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -226,11 +236,14 @@ export default function EmailForm() {
                                         <input
                                             type="text"
                                             id="name-desktop"
+                                            name="name"
+                                            autoComplete="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             className={`w-full px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
                                             placeholder="Anders Andersson"
+                                            required
                                         />
                                     </div>
                                     
@@ -244,11 +257,15 @@ export default function EmailForm() {
                                         <input
                                             type="email"
                                             id="email-desktop"
+                                            name="email"
+                                            autoComplete="email"
+                                            inputMode="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             className={`w-full px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
                                             placeholder="anders@example.com"
+                                            required
                                         />
                                     </div>
                                     
@@ -261,12 +278,14 @@ export default function EmailForm() {
                                     <div className="relative">
                                         <textarea
                                             id="message-desktop"
+                                            name="message"
                                             value={message}
                                             onChange={(e) => setMessage(e.target.value)}
                                             className={`w-full px-4 py-4 ${inputStyles} resize-y max-h-96`}
                                             disabled={hasSubmitted}
                                             rows={6}
                                             placeholder="Ditt meddelande här..."
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -301,7 +320,11 @@ export default function EmailForm() {
 
                 {/* Status message */}
                 {status && (
-                    <div className={`mt-4 p-4 mx-8 text-center text-sm ${isSuccess ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}>
+                    <div
+                        role={isSuccess ? "status" : "alert"}
+                        aria-live={isSuccess ? "polite" : "assertive"}
+                        className={`mt-4 p-4 mx-8 text-center text-sm ${isSuccess ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}
+                    >
                         {status}
                     </div>
                 )}

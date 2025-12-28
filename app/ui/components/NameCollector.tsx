@@ -87,7 +87,8 @@ export default function NameCollector() {
                 <img
                     src="/backgrounds/formBackground.jpg"
                     className="w-full h-full object-cover saturate-0 opacity-20"
-                    alt="Background"
+                    alt=""
+                    aria-hidden="true"
                 />
                 <div className="absolute inset-0 bg-black/30" />
             </div>
@@ -120,10 +121,13 @@ export default function NameCollector() {
                                         <input
                                             type="text"
                                             id="name-mobile"
+                                            name="name"
+                                            autoComplete="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             className={`w-full max-w-md mx-auto px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -183,10 +187,13 @@ export default function NameCollector() {
                                         <input
                                             type="text"
                                             id="name-desktop"
+                                            name="name"
+                                            autoComplete="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             className={`w-full px-4 py-2 ${inputStyles}`}
                                             disabled={hasSubmitted}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -221,7 +228,11 @@ export default function NameCollector() {
 
                 {/* Status message */}
                 {status && (
-                    <div className={`mt-4 p-4 mx-8 text-center text-sm ${isSuccess ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}>
+                    <div
+                        role={isSuccess ? "status" : "alert"}
+                        aria-live={isSuccess ? "polite" : "assertive"}
+                        className={`mt-4 p-4 mx-8 text-center text-sm ${isSuccess ? 'bg-green-500/20 text-green-200' : 'bg-red-500/20 text-red-200'}`}
+                    >
                         {status}
                     </div>
                 )}
